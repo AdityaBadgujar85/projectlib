@@ -154,7 +154,8 @@ def RepositoryPage(request):
                 Q(academic_year__icontains=selected_search) |
                 Q(date__icontains=selected_search) |
                 Q(ofclass__icontains=selected_search) |
-                Q(division__icontains=selected_search)
+                Q(division__icontains=selected_search) |
+                Q(domain__icontains=selected_search)
             ).distinct()  # Ensures no duplicate results
 
         # Render your template with the filtered student list
