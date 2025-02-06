@@ -1,0 +1,251 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;     
+}
+
+.custom-shape-divider-bottom-1736520294 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg); /* Flips the shape vertically */
+    z-index: -1;
+}
+
+.custom-shape-divider-bottom-1736520294 svg {
+    position: relative;
+    display: block;
+    width: 200%; /* Stretches beyond the screen */
+    height: 900px; /* Adjusts the height of the shape */
+}
+
+.custom-shape-divider-bottom-1736520294 .shape-fill {
+    fill: url(#gradient-fill); /* Corrected gradient URL reference */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+.navbar .logo img {
+    width: 200px;
+    height: auto;
+}
+
+.navbar .link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+.navbar .link a {
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+}
+
+.navbar .link a:hover {
+    color: #ffbf57;
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Center the content */
+    align-items: flex-start; /* Align items to the top */
+    max-width: 100%;
+    padding: 0 10%; /* Add padding to the container */
+    gap: 20px; /* Space between image and card */
+}
+
+.card {
+    flex: 1; /* Allow the card to grow */
+    width: 60%;
+    background-color: #ffbf57;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 10px;
+    padding: 30px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+input, select, textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    min-width: 100%; /* Make inputs take the full width */
+    margin-bottom: 15px; /* Space between inputs */
+}
+
+.textarea{
+    resize:none;
+}
+
+.input{
+    background-color: white;
+}
+
+.form-group label {
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: bold; /* Make label bold */
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    min-width: 100%; /* Full width for button */
+}
+
+.imgg {
+    flex: 1; /* Allow the image container to grow */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the image */
+    align-items: center; /* Center the image vertically */
+    max-width: 30%;
+}
+
+.imgg img {
+    width: 100%; /* Make the image responsive */
+    max-width: 200px; /* Set a max width for the image */
+    height: auto;
+    margin-top: 50%;
+    position: fixed;
+}
+
+/* Responsive Styles for Navbar */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 0 8px;
+    }
+
+    .navbar .logo img {
+        width: 80px;
+    }
+
+    .navbar .link {
+        gap: 20px;
+    }
+
+    .navbar .link a {
+        font-size: 14px; /* Decrease font size for smaller screens */
+    }
+
+    .card {
+        width: 90%;
+        padding: 15px;
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    input, select, textarea {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+
+    button {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+
+    .container {
+        flex-direction: column; /* Stack image and card vertically on small screens */
+        align-items: center; /* Center items */
+    }
+
+    .imgg img{
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar .link a {
+        font-size: 12px; /* Further decrease font size for very small screens */
+    }
+
+    .navbar .link {
+        gap: 10px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .custom-shape-divider-bottom-1736520294 {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg); /* Flips the shape vertically */
+        z-index: -1;
+    }
+    
+    .custom-shape-divider-bottom-1736520294 svg {
+        position: relative;
+        display: block;
+        width: 200%; /* Stretches beyond the screen */
+        height: 1200px; /* Adjusts the height of the shape */
+    }
+    
+    .custom-shape-divider-bottom-1736520294 .shape-fill {
+        fill: url(#gradient-fill); /* Corrected gradient URL reference */
+    }
+
+    .card {
+        width: 90%;
+        padding: 15px;
+    }
+
+    input, select, textarea {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+
+    button {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+
+    .navbar .link a {
+        font-size: 16px; /* Slightly smaller font size on medium screens */
+    }
+
+    .imgg img{
+        margin-top: 100%;
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1900px) {
+    .card {
+        width: 80%;
+        padding: 30px;
+    }
+
+    input, select, textarea {
+        max-width: 300px; /* Maintain max width for larger screens */
+    }
+
+    button {
+        max-width: 500px; /* Maintain max width for larger screens */
+    }
+
+    .navbar .link a {
+        font-size: 18px; /* Increase font size on larger screens */
+    }
+}

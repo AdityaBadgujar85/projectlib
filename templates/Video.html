@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href={%static 'css/video.css'%}>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="/"><img src={%static 'img/Borcelle.png'%} alt=""></a>
+        </div>
+        <div class="logout">
+            <a href="/logout/">LOGOUT</a>
+        </div>
+    </nav> 
+    <div class="main-container"> <!-- Changed class name here -->
+        <div class="container">
+            <div class="video1">
+                <video src="{{student_obj.video.url}}" autoplay controls poster="{{student_obj.thumbnail.url}}"></video>
+            </div>
+            <div class="title">
+                <h1>{{student_obj.title}}</h1>
+                <div class="date">
+                    <span>
+                        <h3>{{student_obj.date}}</h3>
+                    </span>
+                </div>   
+            </div>
+        </div>
+        <div class="movement">
+            <div class="info">
+                <h3>Name: <p>{{student_obj.name}}</p></h3>
+                <h3>Class: <p>{{student_obj.ofclass}}</p></h3>
+                <h3>Div: <p>{{student_obj.division}}</p></h3> 
+                <h3>Branch: <p>{{student_obj.branch}}</p></h3> 
+                <h3>Description: <p>{{student_obj.discription}}</p></h3>
+                <h3>Domain of Project: <p>{{student_obj.domain}}</p></h3>
+                <h3>Achievement: <p>{{student_obj.Achievements}}</p></h3>
+                <h3>Challenges Faced: <p>{{student_obj.Challenges}}</p></h3>
+            </div>
+            <button class="back-button" onclick="goBack()">Go Back</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle the back button functionality
+        function goBack() {
+            // Check if there is a previous page in the history stack
+            if (window.history.length > 1) {
+                window.history.back(); // Navigate to the previous page
+            } else {
+                alert("No previous page in history."); // Optional: Alert if no back navigation is possible
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,723 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.custom-shape-divider-bottom-1736520294 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg); /* Flips the shape vertically */
+  z-index: -1;
+}
+
+.custom-shape-divider-bottom-1736520294 svg {
+  position: relative;
+  display: block;
+  width: calc(200% + 1.3px); /* Ensures the shape stretches beyond the screen */
+  height: 900px; /* Adjusts the height of the shape */
+}
+
+.custom-shape-divider-bottom-1736520294 .shape-fill {
+  fill: url(#gradient-fill); /* Corrected gradient URL reference */
+}
+
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 1;
+}
+
+.navbar .logo img{
+  width: 200px;
+  height: auto;
+}
+
+.navbar .link{
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 80px;
+margin-right: 20px;
+}
+
+.navbar .link a{
+  color: white;
+  text-decoration: none;
+  font-size: large;
+  font-weight: bold;
+}
+
+.navbar .link a:hover{
+  color: #ffbf57;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  gap: 180px;
+  top: 200px;
+}
+
+.imgg img{
+  width: 600px;
+  height: auto;
+  border-radius: 20px;
+  position: relative;
+  left: 100px;
+}
+
+.form1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 400px;
+  background-color: #ffbf57;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form1 input{
+  width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.form1 button{
+  width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;  
+  color: rgb(0, 0, 0);
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.form1 button:hover{
+  background-color: #8a8a8a;
+}
+
+
+.form1 .links {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+}
+
+.form1 .links a{
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: large;
+}
+
+.form1 .links a:hover{
+  font-weight: bold;
+}
+
+ul{
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Css for mobile */
+
+
+@media screen and (max-width: 768px) {
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  
+  .custom-shape-divider-bottom-1736520294 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      transform: rotate(180deg); /* Flips the shape vertically */
+      z-index: -1;
+  }
+  
+  .custom-shape-divider-bottom-1736520294 svg {
+      position: relative;
+      display: block;
+      width: calc(207% + 1.3px); /* Ensures the shape stretches beyond the screen */
+      height: 830px; /* Adjusts the height of the shape */
+  }
+  
+  .custom-shape-divider-bottom-1736520294 .shape-fill {
+      fill: url(#gradient-fill); /* Corrected gradient URL reference */
+  }
+  
+  
+  .navbar{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 8px;
+      padding-right: 8px;
+      z-index: 1;
+  }
+  
+  .navbar .logo img{
+      width: 80px;
+      height: auto;
+  }
+  
+  .navbar .link{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .navbar .link a{
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: bold;
+      
+  }
+  
+  .navbar .link a:hover{
+      color: #ffbf57;
+  }
+  
+  .container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      gap: 10px;
+      top: 30px;
+  }
+  
+  .imgg img{
+      width: 250px;
+      height: auto;
+      border-radius: 20px;
+      position: relative;
+      left: 20px;
+  }
+  
+  .form1{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 300px;
+      height: 300px;
+      background-color: #ffbf57;
+      border-radius: 20px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .form1 input{
+      width: 260px;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 20px;
+  }
+  
+  .form1 button{
+      width: 260px;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;  
+      color: rgb(0, 0, 0);
+      margin-top: 20px;
+      cursor: pointer;
+      background-color: lightgray;
+  }
+  
+  .form1 button:hover{
+      background-color: #8a8a8a;
+  }
+  
+  
+  .form1 .links {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+  }
+  
+  .form1 .links a{
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      font-size: small;
+  }
+  
+  .form1 .links a:hover{
+      font-weight: bold;
+  }
+ 
+  ul{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  }
+
+
+/* Css for tabs */
+
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+      
+      *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      
+      
+      .custom-shape-divider-bottom-1736520294 {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          overflow: hidden;
+          line-height: 0;
+          transform: rotate(180deg); /* Flips the shape vertically */
+          z-index: -1;
+      }
+      
+      .custom-shape-divider-bottom-1736520294 svg {
+          position: relative;
+          display: block;
+          width: calc(207% + 1.3px); /* Ensures the shape stretches beyond the screen */
+          height: 1200px; /* Adjusts the height of the shape */
+      }
+      
+      .custom-shape-divider-bottom-1736520294 .shape-fill {
+          fill: url(#gradient-fill); /* Corrected gradient URL reference */
+      }
+      
+      
+      .navbar{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-left: 8px;
+          padding-right: 8px;
+          z-index: 1;
+      }
+      
+      .navbar .logo img{
+          width: 200px;
+          height: auto;
+      }
+      
+      .navbar .link{
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+      
+      .navbar .link a{
+          color: white;
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: bold;
+          
+      }
+      
+      .navbar .link a:hover{
+          color: #ffbf57;
+      }
+      
+      .container{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          position: relative;
+          gap: 10px;
+          top: 80px;
+      }
+      
+      .imgg img{
+          width: 400px;
+          height: auto;
+          border-radius: 20px;
+          position: relative;
+          left: 20px;
+      }
+      
+      .form1{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 500px;
+          height: 400px;
+          background-color: #ffbf57;
+          border-radius: 20px;
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+          font-size: 20px;    
+      }
+      
+      .form1 input{
+          width: 400px;
+          padding: 10px;
+          border-radius: 5px;
+          border: none;
+          margin-bottom: 20px;
+      }
+      
+      .form1 button{
+          width: 400px;
+          padding: 10px;
+          border-radius: 5px;
+          border: none;  
+          color: rgb(0, 0, 0);
+          margin-top: 20px;
+          cursor: pointer;
+          background-color: lightgray;
+      }
+      
+      .form1 button:hover{
+          background-color: #8a8a8a;
+      }
+      
+      
+      .form1 .links {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+      }
+      
+      .form1 .links a{
+          color: rgb(0, 0, 0);
+          text-decoration: none;
+          font-size: 15px;
+      }
+      
+      .form1 .links a:hover{
+          font-weight: bold;
+      }
+      ul{
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      }
+    
+
+      @media screen and (min-width: 1280px) and (max-width: 1900px){
+
+          *{
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+          }
+          
+          
+          .custom-shape-divider-bottom-1736520294 {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              overflow: hidden;
+              line-height: 0;
+              transform: rotate(180deg); /* Flips the shape vertically */
+              z-index: -1;
+          }
+          
+          .custom-shape-divider-bottom-1736520294 svg {
+              position: relative;
+              display: block;
+              width: calc(200% + 1.3px); /* Ensures the shape stretches beyond the screen */
+              height: 900px; /* Adjusts the height of the shape */
+          }
+          
+          .custom-shape-divider-bottom-1736520294 .shape-fill {
+              fill: url(#gradient-fill); /* Corrected gradient URL reference */
+          }
+          
+          
+          .navbar{
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding-left: 20px;
+              padding-right: 20px;
+              z-index: 1;
+          }
+          
+          .navbar .logo img{
+              width: 200px;
+              height: auto;
+          }
+          
+          .navbar .link{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 80px;
+            margin-right: 20px;
+          }
+          
+          .navbar .link a{
+              color: white;
+              text-decoration: none;
+              font-size: large;
+              font-weight: bold;
+          }
+          
+          .navbar .link a:hover{
+              color: #ffbf57;
+          }
+
+          .container{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: row;
+              position: relative;
+              gap: 180px;
+              top: 120px;
+          }
+          
+          .imgg img{
+              width: 550px;
+              height: auto;
+              border-radius: 20px;
+              position: relative;
+              left: 100px;
+          }
+          
+          .form1{
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              width: 450px;
+              height: 350px;
+              background-color: #ffbf57;
+              border-radius: 20px;
+              box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+          }
+          
+          .form1 input{
+              width: 350px;
+              padding: 10px;
+              border-radius: 5px;
+              border: none;
+              margin-bottom: 20px;
+          }
+          
+          .form1 button{
+              width: 350px;
+              padding: 10px;
+              border-radius: 5px;
+              border: none;  
+              color: rgb(0, 0, 0);
+              margin-top: 20px;
+              cursor: pointer;
+              background-color: lightgray;
+          }
+          
+          .form1 button:hover{
+              background-color: #8a8a8a;
+          }
+          
+          
+          .form1 .links {
+             display: flex;
+             flex-direction: row;
+             justify-content: space-between;
+          }
+          
+          .form1 .links a{
+              color: rgb(0, 0, 0);
+              text-decoration: none;
+              font-size: large;
+          }
+          
+          .form1 .links a:hover{
+              font-weight: bold;
+          }
+          
+          ul{
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+          }
+      }
+
+      @media screen and (min-width: 1900px) and (max-width: 2560px){
+
+
+          *{
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+          }
+          
+          
+          .custom-shape-divider-bottom-1736520294 {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              overflow: hidden;
+              line-height: 0;
+              transform: rotate(180deg); /* Flips the shape vertically */
+              z-index: -1;
+          }
+          
+          .custom-shape-divider-bottom-1736520294 svg {
+              position: relative;
+              display: block;
+              width: calc(200% + 1.3px); /* Ensures the shape stretches beyond the screen */
+              height: 1200px; /* Adjusts the height of the shape */
+          }
+          
+          .custom-shape-divider-bottom-1736520294 .shape-fill {
+              fill: url(#gradient-fill); /* Corrected gradient URL reference */
+          }
+          
+          
+          .navbar{
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding-left: 20px;
+              padding-right: 20px;
+              z-index: 1;
+          }
+          
+          .navbar .logo img{
+              width: 200px;
+              height: auto;
+          }
+          
+          .navbar .link{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 80px;
+            margin-right: 20px;
+          }
+          
+          .navbar .link a{
+              color: white;
+              text-decoration: none;
+              font-size: large;
+              font-weight: bold;
+          }
+          
+          .navbar .link a:hover{
+              color: #ffbf57;
+          }
+          
+          .container{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: row;
+              position: relative;
+              gap: 180px;
+              top: 150px;
+          }
+          
+          .imgg img{
+              width: 700px;
+              height: auto;
+              border-radius: 20px;
+              position: relative;
+              left: 100px;
+          }
+          
+          .form1{
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              width: 600px;
+              height: 400px;
+              background-color: #ffbf57;
+              border-radius: 20px;
+              box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+          }
+          
+          .form1 input{
+              width: 500px;
+              padding: 10px;
+              border-radius: 5px;
+              border: none;
+              margin-bottom: 20px;
+          }
+          
+          .form1 button{
+              width: 500px;
+              padding: 10px;
+              border-radius: 5px;
+              border: none;  
+              color: rgb(0, 0, 0);
+              margin-top: 20px;
+              cursor: pointer;
+              background-color: lightgray;
+          }
+          
+          .form1 button:hover{
+              background-color: #8a8a8a;
+          }
+          
+          
+          .form1 .links {
+             display: flex;
+             flex-direction: row;
+             justify-content: space-between;
+          }
+          
+          .form1 .links a{
+              color: rgb(0, 0, 0);
+              text-decoration: none;
+              font-size: large;
+          }
+          
+          .form1 .links a:hover{
+              font-weight: bold;
+          }
+          ul{
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+          }
+
+      }
+
+      

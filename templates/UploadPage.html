@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Shape with Gradient</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/UploadPage.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/"><img src="{% static 'img/Borcelle.png' %}" alt=""></a>
+        </div>
+        <div class="link">
+            <a href="/">Home</a>
+            <a href="/About/">About</a>
+            <a href="/Login/">Login</a>
+            <a href="/Register/">Signup</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="imgg">
+            <img class="imgg1" src="{% static 'img/form.png' %}" alt="">
+        </div>
+
+        <div class="card">
+            <form method="post" enctype="multipart/form-data" id="domainForm">
+                {% csrf_token %}
+                
+                <div class="form-group" id="name-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your Name" name="name" maxlength="70" required>
+                </div>
+
+                <div class="form-group" id="class-group">
+                    <label for="class" class="form-label">Class</label>
+                    <select class="form-select" id="class" name="classof" required>
+                        <option value="">Choose Year</option>
+                        <option value="FY">FY</option>
+                        <option value="SY">SY</option>
+                        <option value="TY">TY</option>
+                        <option value="BTech">BTech</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="div-group">
+                    <label for="div" class="form-label">Division</label>
+                    <select class="form-select" id="div" name="division" required>
+                        <option value="">Choose Division</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="branch-group">
+                    <label for="branch" class="form-label">Branch</label>
+                    <select class="form-select" id="branch" name="branch" required>
+                        <option value="">Choose Branch</option>
+                        <option value="Computer">Computer</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Electronic and Telecommunication">Electronic and Telecommunication</option>
+                        <option value="Electrical">Electrical</option>
+                        <option value="Mechanical">Mechanical</option>
+                        <option value="Civil">Civil</option>
+                        <option value="Computer(AI)">Computer(AI)</option>
+                        <option value="Computer(DS)">Computer(DS)</option>
+                        <option value="AIDS">AIDS</option>
+                        <option value="IOT">IOT</option>
+                        <option value="Software">Software Engineering</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="projectTitle-group">
+                    <label for="projectTitle" class="form-label">Title of Project</label>
+                    <input type="text" class="form-control" id="projectTitle" placeholder="Enter your Project Title" name="title" maxlength="85" required>
+                </div>
+
+                <div class="form-group" id="Academic_year-group">
+                    <label for="Academic_year" class="form-label">Academic Year</label>
+                    <input type="text" class="form-control" id="Academic_year" placeholder="e.g., 2023-24" name="academic_year" required>
+                </div>
+
+                <script>
+                    document.getElementById("Academic_year").addEventListener("input", function () {
+                        let input = this.value;
+                        let regex = /^\d{4}-(\d{2})$/;
+                        let match = input.match(regex);
+                        
+                        if (!match) {
+                            this.setCustomValidity("Please enter the academic year in yyyy-yy format, e.g., 2023-24");
+                        } else {
+                            let startYear = parseInt(input.substring(0, 4));
+                            let endYear = parseInt(input.substring(5, 7));
+                            
+                            if (endYear !== (startYear % 100) + 1) {
+                                this.setCustomValidity("Invalid academic year range. The format should be yyyy-yy, e.g., 2023-24");
+                            } else {
+                                this.setCustomValidity("");
+                            }
+                        }
+                        this.reportValidity();
+                    });
+                    
+                </script>
+
+                <div class="form-group" id="date-group">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                </div>
+
+                <div class="form-group" id="description-group">
+                    <label for="description" class="form-label">Description of Project</label>
+                    <textarea class="form-control" id="description" rows="4" placeholder="Brief description" name="discription" maxlength="100" required></textarea>
+                </div>
+
+                <div class="form-group" id="challenges-group">
+                    <label for="challenges" class="form-label">Challenges Faced</label>
+                    <textarea class="form-control" id="challenges" rows="4" placeholder="Challenges faced by your group" name="challenges" maxlength="100" required></textarea>
+                </div>
+
+                <div class="form-group" id="videoUpload-group">
+                    <label for="videoUpload" class="form-label">Upload Video</label>
+                    <input type="file" class="form-control" id="videoUpload" accept="video/*" name="video" required onchange="validateVideoSize(this)">
+                    <small id="fileSizeError" class="text-danger" style="display: none;">The video size must be less than 400 MB.</small>
+                </div>
+
+                <div class="form-group" id="photoUpload-group">
+                    <label for="photoUpload" class="form-label">Upload Thumbnail</label>
+                    <input type="file" class="form-control" id="photoUpload" accept="image/*" name="thumbnail" required onchange="validateThumbnailSize(this)">
+                    <small id="thumbnailSizeError" class="text-danger" style="display: none;">Thumbnail size must be 100 KB - 2 MB.</small>
+                </div>
+
+                <div class="form-group" id="achievement-group">
+                    <label for="achievement" class="form-label">Achievements</label>
+                    <input type="text" class="form-control" id="achievement" placeholder="E.g., Hackathon, Academic Project" maxlength="80" name="achievements" required>
+                </div>
+
+                <div class="form-group" id="level-group">
+                    <label for="level" class="form-label">Level of Project</label>
+                    <input type="text" class="form-control" id="level" placeholder="E.g., National, State" name="levelofproject" maxlength="80" required>
+                </div>
+
+                <div class="form-group" id="domain-group">
+                    <label for="domain" class="form-label">Domain</label>
+                    <select class="form-select" id="domain" name="domain" maxlength="60" required onchange="handleDomainSelection(this)">
+                        <option value="">Choose Domain</option>
+                        <option value="Full Stack Development">Full Stack Development</option>
+                        <option value="Machine Learning">Machine Learning</option>
+                        <option value="Artificial Intelligence">Artificial Intelligence</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="Cybersecurity">Cybersecurity</option>
+                        <option value="Cloud Computing">Cloud Computing</option>
+                        <option value="Internet of Things (IoT)">Internet of Things (IoT)</option>
+                        <option value="DevOps">DevOps</option>
+                        <option value="Game Development">Game Development</option>
+                        <option value="Augmented Reality (AR)">Augmented Reality (AR)</option>
+                        <option value="Virtual Reality (VR)">Virtual Reality (VR)</option>
+                        <option value="Mixed Reality (MR)">Mixed Reality (MR)</option>
+                        <option value="Blockchain">Blockchain</option>
+                        <option value="UI/UX Design">UI/UX Design</option>
+                        <option value="Software Testing & QA">Software Testing & QA</option>
+                        <option value="Big Data Analytics">Big Data Analytics</option>
+                        <option value="Embedded Systems">Embedded Systems</option>
+                        <option value="Mobile Application Development">Mobile Application Development</option>
+                        <option value="Sustainable Software Design">Sustainable Software Design</option>
+                        <option value="Environmental Data Analysis">Environmental Data Analysis</option>
+                        <option value="Renewable Energy Technologies">Renewable Energy Technologies</option>
+                        <option value="Geographic Information Systems (GIS)">Geographic Information Systems (GIS)</option>
+                        <option value="Computer Vision">Computer Vision</option>
+                        <option value="Natural Language Processing (NLP)">Natural Language Processing (NLP)</option>
+                        <option value="Robotics and Automation">Robotics and Automation</option>
+                        <option value="Digital Twin Technology">Digital Twin Technology</option>
+                        <option value="Quantum Computing">Quantum Computing</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="otherDomainInput-group" style="display: none; margin-top: 10px;">
+                    <input type="text" id="otherDomainInput" class="form-control" maxlength="70" placeholder="Enter your domain">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function handleDomainSelection(selectElement) {
+            const otherDomainInput = document.getElementById("otherDomainInput");
+            if (selectElement.value === "Other") {
+                otherDomainInput.style.display = "block";  // Show input
+                otherDomainInput.focus();  // Focus on the input for better UX
+            } else {
+                otherDomainInput.style.display = "none";  // Hide input if not "Other"
+                otherDomainInput.value = "";  // Clear the input field
+            }
+        }
+
+        // Example validation functions for file uploads (Optional for size checks)
+        function validateVideoSize(input) {
+            const fileSize = input.files[0].size / 1024 / 1024;  // Size in MB
+            if (fileSize > 400) {
+                document.getElementById('fileSizeError').style.display = 'block';
+                input.value = '';  // Reset the file input
+            } else {
+                document.getElementById('fileSizeError').style.display = 'none';
+            }
+        }
+
+        function validateThumbnailSize(input) {
+            const fileSize = input.files[0].size / 1024;  // Size in KB
+            if (fileSize < 100 || fileSize > 2048) {
+                document.getElementById('thumbnailSizeError').style.display = 'block';
+                input.value = '';  // Reset the file input
+            } else {
+                document.getElementById('thumbnailSizeError').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+    <div class="custom-shape-divider-bottom-1736520294">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="gradient-fill" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#000046" />
+                    <stop offset="100%" stop-color="#1CB5E0" />
+                </linearGradient>
+            </defs>
+            <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" fill="url(#gradient-fill)" class="shape-fill"></path>
+        </svg>
+    </div>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href={%static 'css/Repository.css'%}>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+<a href="/"><img src={%static 'img/Borcelle.png'%} alt=""></a>
+        </div>
+        <div class="search">
+            <form method="get">
+            <input type="text" name="search" placeholder="Search">
+            <button value="search"><i class="fa fa-search"></i></button>
+        </form>
+        </div>
+        <div class="link">
+
+         <a href="/logout/">Logout</a>
+        </div>
+    </nav>
+<div class="maincard">
+    <div class="filter">
+            <div class="mainlink">
+            <a href="/">Home</a>
+            <a href="/About/">About</a>
+            <a href="/Upload/">Upload</a> 
+            </div>
+
+          
+            <div class="fil">
+            <form id="filterForm" method="get"> <!-- Replace with your action URL -->
+                
+                <div class="texxt">
+                    <h3>Search Filters</h3>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-header" onclick="toggleFilter(this, 'branchFilter')">
+                        Branch
+                        <span class="arrow">▶</span>
+                    </div>
+                    <div class="filter-body" id="branchFilter">
+                        <label><input type="checkbox" name="branch" value="Computer" onchange="updateURL(this)"> Computer</label><br>
+<label><input type="checkbox" name="branch" value="Information Technology" onchange="updateURL(this)"> Information Technology</label><br>
+<label><input type="checkbox" name="branch" value="Electronic and Telecommunication" onchange="updateURL(this)"> Electronic and Telecommunication</label><br>
+<label><input type="checkbox" name="branch" value="Electrical" onchange="updateURL(this)"> Electrical</label><br>
+<label><input type="checkbox" name="branch" value="Mechanical" onchange="updateURL(this)"> Mechanical</label><br>
+<label><input type="checkbox" name="branch" value="Civil" onchange="updateURL(this)"> Civil</label><br>
+<label><input type="checkbox" name="branch" value="Computer(AI)" onchange="updateURL(this)"> Computer(AI)</label><br>
+<label><input type="checkbox" name="branch" value="Computer(DS)" onchange="updateURL(this)"> Computer(DS)</label><br>
+<label><input type="checkbox" name="branch" value="AIDS" onchange="updateURL(this)"> AIDS</label><br>
+<label><input type="checkbox" name="branch" value="IOT" onchange="updateURL(this)"> IOT</label><br>
+<label><input type="checkbox" name="branch" value="Software" onchange="updateURL(this)"> Software Engineering</label><br>
+
+                    </div>
+                </div>
+            
+                <div class="filter-section">
+                    <div class="filter-header" onclick="toggleFilter(this, 'yearFilter')">
+                        Year
+                        <span class="arrow">▶</span>
+                    </div>
+                    <div class="filter-body" id="yearFilter">
+                        <label><input type="checkbox" name="ofclass" value="FY" onchange="updateURL(this)"> FY</label><br>
+                        <label><input type="checkbox" name="ofclass" value="SY" onchange="updateURL(this)"> SY</label><br>
+                        <label><input type="checkbox" name="ofclass" value="TY" onchange="updateURL(this)"> TY</label><br>
+                        <label><input type="checkbox" name="ofclass" value="BTech" onchange="updateURL(this)"> BTech</label>
+                    </div>
+                </div>
+            
+                <div class="filter-section">
+                    <div class="filter-header" onclick="toggleFilter(this, 'domainFilter')">
+                        Domain
+                        <span class="arrow">▶</span>
+                    </div>
+                    <div class="filter-body" id="domainFilter">
+                        <label><input type="checkbox" name="domain" value="Full Stack Development" onchange="updateURL(this)">Full Stack Development</label><br>
+<label><input type="checkbox" name="domain" value="Machine Learning" onchange="updateURL(this)">Machine Learning</label><br>
+<label><input type="checkbox" name="domain" value="Artificial Intelligence" onchange="updateURL(this)">Artificial Intelligence</label><br>
+<label><input type="checkbox" name="domain" value="Data Science" onchange="updateURL(this)">Data Science</label><br>
+<label><input type="checkbox" name="domain" value="Cybersecurity" onchange="updateURL(this)">Cybersecurity</label><br>
+<label><input type="checkbox" name="domain" value="Cloud Computing" onchange="updateURL(this)">Cloud Computing</label><br>
+<label><input type="checkbox" name="domain" value="Internet of Things (IoT)" onchange="updateURL(this)">Internet of Things (IoT)</label><br>
+<label><input type="checkbox" name="domain" value="DevOps" onchange="updateURL(this)">DevOps</label><br>
+<label><input type="checkbox" name="domain" value="Game Development" onchange="updateURL(this)">Game Development</label><br>
+<label><input type="checkbox" name="domain" value="Augmented Reality (AR)" onchange="updateURL(this)">Augmented Reality (AR)</label><br>
+<label><input type="checkbox" name="domain" value="Virtual Reality (VR)" onchange="updateURL(this)">Virtual Reality (VR)</label><br>
+<label><input type="checkbox" name="domain" value="Mixed Reality (MR)" onchange="updateURL(this)">Mixed Reality (MR)</label><br>
+<label><input type="checkbox" name="domain" value="Blockchain" onchange="updateURL(this)">Blockchain</label><br>
+<label><input type="checkbox" name="domain" value="UI/UX Design" onchange="updateURL(this)">UI/UX Design</label><br>
+<label><input type="checkbox" name="domain" value="Software Testing & QA" onchange="updateURL(this)">Software Testing & QA</label><br>
+<label><input type="checkbox" name="domain" value="Big Data Analytics" onchange="updateURL(this)">Big Data Analytics</label><br>
+<label><input type="checkbox" name="domain" value="Embedded Systems" onchange="updateURL(this)">Embedded Systems</label><br>
+<label><input type="checkbox" name="domain" value="Mobile Application Development" onchange="updateURL(this)">Mobile Application Development</label><br>
+<label><input type="checkbox" name="domain" value="Sustainable Software Design" onchange="updateURL(this)">Sustainable Software Design</label><br>
+<label><input type="checkbox" name="domain" value="Environmental Data Analysis" onchange="updateURL(this)">Environmental Data Analysis</label><br>
+<label><input type="checkbox" name="domain" value="Renewable Energy Technologies" onchange="updateURL(this)">Renewable Energy Technologies</label><br>
+<label><input type="checkbox" name="domain" value="Geographic Information Systems (GIS)" onchange="updateURL(this)">Geographic Information Systems (GIS)</label><br>
+<label><input type="checkbox" name="domain" value="Computer Vision" onchange="updateURL(this)">Computer Vision</label><br>
+<label><input type="checkbox" name="domain" value="Natural Language Processing (NLP)" onchange="updateURL(this)">Natural Language Processing (NLP)</label><br>
+<label><input type="checkbox" name="domain" value="Robotics and Automation" onchange="updateURL(this)">Robotics and Automation</label><br>
+<label><input type="checkbox" name="domain" value="Digital Twin Technology" onchange="updateURL(this)">Digital Twin Technology</label><br>
+<label><input type="checkbox" name="domain" value="Quantum Computing" onchange="updateURL(this)">Quantum Computing</label><br>
+
+
+                    </div>
+                </div>
+                
+                <script>
+                    function clearAllFilters() {
+                        // Clear URL parameters
+                        history.replaceState(null, '', window.location.pathname);
+                
+                        // Uncheck all checkboxes
+                        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                        checkboxes.forEach(checkbox => checkbox.checked = false);
+                
+                        // Reset visibility of all filters
+                        const filterIds = ['branchFilter', 'yearFilter', 'domainFilter'];
+                        filterIds.forEach(filterId => {
+                            const filterSection = document.getElementById(filterId);
+                            filterSection.style.display = 'none'; // Collapse all filters
+                            const header = filterSection.previousElementSibling;
+                            header.classList.remove('expanded');
+                            localStorage.setItem(filterId, 'closed');
+                        });
+                
+                        // Optionally submit the form to refresh the page
+                        document.getElementById('filterForm').submit();
+                    }
+                </script>
+                <div class="filterbutton" style="text-align: center; margin-top: 20px;">
+                    <button type="button" onclick="clearAllFilters()">Clear All Filters</button>
+                </div>
+            </form>
+           
+            
+            <script>
+                // Toggle visibility of filter sections
+                function toggleFilter(header, filterId) {
+                    const filterSection = document.getElementById(filterId);
+                    const arrow = header.querySelector('.arrow');
+            
+                    if (filterSection.style.display === 'block') {
+                        filterSection.style.display = 'none';
+                        header.classList.remove('expanded');
+                        localStorage.setItem(filterId, 'closed'); // Store state
+                    } else {
+                        filterSection.style.display = 'block';
+                        header.classList.add('expanded');
+                        localStorage.setItem(filterId, 'open'); // Store state
+                    }
+                }
+            
+                // Update URL query parameters based on checkbox changes
+                function updateURL(checkbox) {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const name = checkbox.name;
+                    const value = checkbox.value;
+            
+                    if (checkbox.checked) {
+                        // Add the parameter to the query
+                        urlParams.append(name, value);
+                    } else {
+                        // Remove the parameter from the query
+                        const allValues = urlParams.getAll(name).filter(v => v !== value);
+                        urlParams.delete(name);
+                        allValues.forEach(v => urlParams.append (name, v));
+                    }
+            
+                    // Update the browser URL without reloading the page
+                    history.replaceState(null, '', `?${urlParams.toString()}`);
+            
+                    // Automatically submit the form to trigger the action
+                    document.getElementById('filterForm').submit();
+                }
+            
+                // Initialize checkboxes and filter states based on URL parameters and localStorage
+                function initializeFilters() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            
+                    checkboxes.forEach(checkbox => {
+                        const name = checkbox.name;
+                        const value = checkbox.value;
+            
+                        if (urlParams.getAll(name).includes(value)) {
+                            checkbox.checked = true;
+                        } else {
+                            checkbox.checked = false;
+                        }
+                    });
+            
+                    // Set the visibility of filter sections based on localStorage
+                    const filterIds = ['branchFilter', 'yearFilter', 'domainFilter'];
+                    filterIds.forEach(filterId => {
+                        const filterSection = document.getElementById(filterId);
+                        const state = localStorage.getItem(filterId);
+                        if (state === 'open') {
+                            filterSection.style.display = 'block';
+                            const header = filterSection.previousElementSibling;
+                            header.classList.add('expanded');
+                        } else {
+                            filterSection.style.display = 'none';
+                        }
+                    });
+                }
+            
+                // Call the initialize function on page load
+                window.onload = initializeFilters;
+            </script>
+        </div>
+            
+    </div>
+    <div class="seconddiv">
+        {% for p in student_list %}
+       <div class="card">
+       <div class="imgg">
+        <a href="{% url 'Video' p.id %}">
+            {% if p.thumbnail %}
+                <img src="{{ p.thumbnail.url }}" alt="">
+            {% else %}
+                <img src={%static 'img/Borcelle.png'%}  alt="Default Thumbnail">
+            {% endif %}
+        </a>
+        
+       </div>
+       <div class="title">
+        <h3>{{p.title}}</h3>
+        <h5>{{p.name}}</h5>
+        <h5>{{p.domain}}</h5>
+    </div>
+    </div>
+    {% endfor %}
+    </div>
+</body>
+</html>
