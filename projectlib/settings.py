@@ -230,5 +230,5 @@ STORAGES = {
     },
 }
 
-
+ALLOWED_HOSTS = ["viitprojectlibrary.in", "www.viitprojectlibrary.in", "127.0.0.1", "localhost"]
 
