@@ -118,12 +118,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-# STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = [
+STATICFILES_DIRS = [
 
-#     os.path.join(BASE_DIR,'static'),
-# ]
+    os.path.join(BASE_DIR,'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -142,58 +142,10 @@ EMAIL_HOST_PASSWORD ='tlei dpti zskj jihp'
 LOGIN_URL = '/Login/'  # The URL where users are redirected when they try to access a protected view
 LOGIN_REDIRECT_URL = '/'  # The URL where users are redirected after successful login
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-# Storage access 
-
-# AWS_ACCESS_KEY_ID = 'AKIAXWHDMCCRUYZQKWWW'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'viitprojectstorage'
-# AWS_S3_SIGNATURE_NAME = 's3v4',
-# AWS_S3_REGION_NAME = 'ap-south-1'
-# AWS_S3_FILE_OVERWRITE = False
-# AWS_DEFAULT_ACL =  None
-# AWS_S3_VERITY = True
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
-
-# AWS_ACCESS_KEY_ID = 'AKIAXWHDMCCRUYZQKWWW'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'viitprojectstorage'
-# AWS_S3_REGION_NAME = 'ap-south-1' 
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-# AWS_S3_FILE_OVERWRITE = False
-
-# STORAGES = {
-#     # Static files (CSS, JS, images)
-#     "staticfiles": {
-#         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
-#         "OPTIONS": {
-#             "location": "static",  # Store static files under `static/` in S3
-#         },
-#     },
-
-#     # Media files (User uploads like images, videos)
-#     "default": {
-#         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
-#         "OPTIONS": {
-#             "location": "media",  # Store media files under `media/` in S3
-#         },
-#     },
-# }
-
-
-
-# # Static Files
-# AWS_S3_URL_PROTOCOL = 'https'
-# STATIC_URL = f'{AWS_S3_URL_PROTOCOL}://{AWS_S3_CUSTOM_DOMAIN}/static/'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-# # Media Files (User Uploads)
-# MEDIA_URL = f'{AWS_S3_URL_PROTOCOL}://{AWS_S3_CUSTOM_DOMAIN}/media/'
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 import os
 
@@ -204,21 +156,16 @@ AWS_S3_REGION_NAME = 'ap-south-1'
 AWS_S3_FILE_OVERWRITE = False
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
 
-# Static Files (CSS, JS)
-STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-# Media Files (Videos, Images, User Uploads)
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# Static Files (CSS, JS)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STORAGES = {
-    # Static files (CSS, JS, images)
+    # Static files (CSS, JS)
     "staticfiles": {
-        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
-        "OPTIONS": {
-            "location": "static",  # Store static files under `static/` in S3
-        },
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 
     # Media files (User uploads like images, videos)
@@ -229,6 +176,7 @@ STORAGES = {
         },
     },
 }
+
 
 ALLOWED_HOSTS = ["viitprojectlibrary.in", "www.viitprojectlibrary.in", "127.0.0.1", "localhost"]
 

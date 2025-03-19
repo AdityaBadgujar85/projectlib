@@ -164,7 +164,7 @@ ul{
         position: relative;
         display: block;
         width: calc(207% + 1.3px); /* Ensures the shape stretches beyond the screen */
-        height: 830px; /* Adjusts the height of the shape */
+        height: 1000px; /* Adjusts the height of the shape */
     }
     
     .custom-shape-divider-bottom-1736520294 .shape-fill {

@@ -6,6 +6,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from students.models import Student 
 import logging
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, redirect
 from django.db.models import Q
 def HomePage(request):
     print(request.user)
@@ -70,13 +72,22 @@ def logout_page(request):
 
 
 @login_required
+# def video_page(request, studid):
+#     try:
+#         student_obj = Student.objects.get(id=studid)
+#         return render(request, 'Video.html', {'student_obj': student_obj})
+#     except Student.DoesNotExist:
+#         messages.error(request, 'Student not found.')
+#         return redirect('Repository')
 def video_page(request, studid):
     try:
         student_obj = Student.objects.get(id=studid)
-        return render(request, 'Video.html', {'student_obj': student_obj})
+        liked = student_obj.likes.filter(id=request.user.id).exists()
+        return render(request, 'Video.html', {'student_obj': student_obj ,'liked': liked})
     except Student.DoesNotExist:
         messages.error(request, 'Student not found.')
         return redirect('Repository')
+
 
 
 @login_required
@@ -161,5 +172,14 @@ def RepositoryPage(request):
         # Render your template with the filtered student list
     return render(request, 'Repository.html', {'student_list': student_list})
 
+def video_like(request, studid):
+    student_obj = get_object_or_404(Student, id=studid)
 
+    if request.user in student_obj.likes.all():
+        student_obj.likes.remove(request.user)
+        liked = False
+    else:
+        student_obj.likes.add(request.user)
+        liked = True
 
+    return JsonResponse({'liked': liked, 'like_count': student_obj.likes.count()})

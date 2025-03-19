@@ -25,9 +25,14 @@
             <div class="title">
                 <h1>{{student_obj.title}}</h1>
                 <div class="date">
-                    <span>
-                        <h3>{{student_obj.date}}</h3>
-                    </span>
+                    <h3>{{student_obj.date}}</h3>  
+                    <form action="{% url 'video_like' student_obj.id %}" method="post" class="like-container">
+                        {% csrf_token %}
+                        <button id="like-btn" data-studid="{{ student_obj.id }}" data-liked="{% if liked %}true{% else %}false{% endif %}">
+                            <span id="like-icon">{% if liked %}❤️{% else %}🤍{% endif %}</span>
+                        </button>
+                        <span id="like-count">{{ student_obj.likes.count }}</span>
+                    </form>                                   
                 </div>   
             </div>
         </div>
@@ -57,5 +62,60 @@
             }
         }
     </script>
+    
+    
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            const likeBtn = document.getElementById('like-btn');
+            const likeIcon = document.getElementById('like-icon');
+    
+            // Load correct styles on page load
+            const liked = likeBtn.getAttribute('data-liked') === 'true';
+    
+            if (liked) {
+                likeBtn.style.backgroundColor = '#ffbf57';
+                likeBtn.style.border = '2px solid #ff9f31';
+                likeIcon.innerHTML = '❤️';
+            } else {
+                likeBtn.style.backgroundColor = '#b3b3b3';
+                likeBtn.style.border = '2px solid #8c8c8c';
+                likeIcon.innerHTML = '🤍';
+            }
+    
+            // Handle Like/Unlike without page reload
+            likeBtn.addEventListener('click', function (event) {
+                event.preventDefault();
+                const studid = likeBtn.getAttribute('data-studid');
+    
+                fetch(`/Video/${studid}/like/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.liked) {
+                        likeBtn.style.backgroundColor = '#ffbf57';
+                        likeBtn.style.border = '2px solid #ff9f31';
+                        likeIcon.innerHTML = '❤️';
+                    } else {
+                        likeBtn.style.backgroundColor = '#b3b3b3';
+                        likeBtn.style.border = '2px solid #8c8c8c';
+                        likeIcon.innerHTML = '🤍';
+                    }
+                    document.getElementById('like-count').textContent = data.like_count;
+                });
+            });
+        });
+    </script>
+    
+    
+    
+    
+    
+    
+    
+
 </body>
 </html>

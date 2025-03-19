@@ -73,21 +73,28 @@ nav {
     margin-bottom: 10px; /* Reduced margin for consistency */
 }
 
-.title .date h3 {
-    font-size: medium;
-}
-
 .video1 {
-    width: 100%;
+    width: 100%;  /* Adjust width as needed */
+    height: 70vh; /* Adjust height relative to viewport height */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black; /* Fills remaining space with black */
+    border: 0.5px solid grey;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .video1 video {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 100%;
     border-radius: 10px;
     aspect-ratio: 16/9;
+    object-fit: contain;
 }
+
+
 
 .info {
     width: 100%;
@@ -133,11 +140,64 @@ nav {
     background-color: #e6a84d;
 }
 
+.container .title .date{
+    display: flex;
 
+}
 
-@media (max-width: 1200px) {
+.title .date {
+    display: flex; /* Use flexbox to align items in a row */
+    align-items: center; /* Center items vertically */
+    gap: 15px; /* Space between the date and the button */
+    justify-content: space-between;
+}
+
+.title .date h3 {
+    margin: 0; /* Remove default margin */
+    white-space: nowrap; /* Prevent line breaks */
+}
+
+.title .date form {
+    margin: 0; /* Remove default margin */
+}
+
+#like-btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 28px;
+    color: white;
+    border: 2px solid #8c8c8c;
+    background-color: #b3b3b3;
+    cursor: pointer;
+}
+
+#like-btn.liked {
+    border: 2px solid #ff9f31;
+    background-color: #ffbf57;
+}
+
+#like-count {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+form{
+    display: flex;
+}
+
+@media (max-width: 500px) {
+
     .title h1 {
-        font-size: 0.8rem; /* Smaller title on very small screens */
+        font-size: 1rem; /* Smaller title on very small screens */
+    }
+
+    .title .date{
+        font-size: 0.8rem;
     }
 
     .info h3 {
@@ -148,14 +208,173 @@ nav {
         font-size: 14px; /* Smaller button text */
     }
 
-.main-container{
+    .main-container{
     padding: 10px;
-}
+    }
 
     .container{
         max-width: 100%;
     }
     .movement{
         width: 100%;
+        margin-top: 10px;
+    }
+    .video1 {
+        width: 100%;  /* Adjust width as needed */
+        height: 40vh; /* Adjust height relative to viewport height */
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black; /* Fills remaining space with black */
+        border: 0.5px solid grey;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .video1 video {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        aspect-ratio: 16/9;
+        object-fit: contain;
+    }
+    .title .date {
+        display: flex; /* Use flexbox to align items in a row */
+        align-items: center; /* Center items vertically */
+        gap: 15px; /* Space between the date and the button */
+        justify-content: space-between;
+    }
+    
+    .title .date h3 {
+        margin: 0; /* Remove default margin */
+        white-space: nowrap; /* Prevent line breaks */
+    }
+    
+    .title .date form {
+        margin: 0; /* Remove default margin */
+    }
+    
+    #like-btn {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 15px;
+        color: white;
+        border: 2px solid #8c8c8c;
+        background-color: #b3b3b3;
+        cursor: pointer;
+    }
+    
+    #like-btn.liked {
+        border: 2px solid #ff9f31;
+        background-color: #ffbf57;
+    }
+    
+    #like-count {
+        font-size: 13px;
+        font-weight: bold;
+        color: #4a4a4a;
+    }
+    
+    form{
+        display: flex;
+    }   
+}
+
+@media (min-width: 501px) and (max-width: 1200px) {
+    .title h1 {
+        font-size: 1rem; /* Smaller title on very small screens */
+    }
+
+    .title .date{
+        font-size: 0.8rem;
+    }
+
+    .info h3 {
+        font-size: clamp(14px, 1vw, 18px); /* Adjust heading size */
+    }
+
+    .movement button {
+        font-size: 14px; /* Smaller button text */
+    }
+
+    .main-container{
+    padding: 10px;
+    }
+
+    .container{
+        max-width: 100%;
+    }
+    .movement{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .video1 {
+        width: 100%;  /* Adjust width as needed */
+        height: 50vh; /* Adjust height relative to viewport height */
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black; /* Fills remaining space with black */
+        border: 0.5px solid grey;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .video1 video {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        aspect-ratio: 16/9;
+        object-fit: contain;
+    }
+    .title .date {
+        display: flex; /* Use flexbox to align items in a row */
+        align-items: center; /* Center items vertically */
+        gap: 15px; /* Space between the date and the button */
+        justify-content: space-between;
+    }
+    
+    .title .date h3 {
+        margin: 0; /* Remove default margin */
+        white-space: nowrap; /* Prevent line breaks */
+    }
+    
+    .title .date form {
+        margin: 0; /* Remove default margin */
+    }
+    
+    #like-btn {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 20px;
+        color: white;
+        border: 2px solid #8c8c8c;
+        background-color: #b3b3b3;
+        cursor: pointer;
+    }
+    
+    #like-btn.liked {
+        border: 2px solid #ff9f31;
+        background-color: #ffbf57;
+    }
+    
+    #like-count {
+        font-size: 15px;
+        font-weight: bold;
+        color: #4a4a4a;
+    }
+    
+    form{
+        display: flex;
     }
 }

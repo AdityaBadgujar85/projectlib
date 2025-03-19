@@ -65,6 +65,7 @@
     max-width: 100%;
     padding: 0 10%; /* Add padding to the container */
     gap: 20px; /* Space between image and card */
+
 }
 
 .card {
@@ -135,7 +136,68 @@ button {
 
 /* Responsive Styles for Navbar */
 @media screen and (max-width: 768px) {
-    .navbar {
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    
+    .custom-shape-divider-bottom-1736520294 {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg); /* Flips the shape vertically */
+        z-index: -1;
+    }
+    
+    .custom-shape-divider-bottom-1736520294 svg {
+        position: relative;
+        display: block;
+        width: calc(207% + 1.3px); /* Ensures the shape stretches beyond the screen */
+        height: 1000px; /* Adjusts the height of the shape */
+    }
+    
+    .custom-shape-divider-bottom-1736520294 .shape-fill {
+        fill: url(#gradient-fill); /* Corrected gradient URL reference */
+    }
+    
+    
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 8px;
+        padding-right: 8px;
+        z-index: 1;
+    }
+    
+    .navbar .logo img{
+        width: 80px;
+        height: auto;
+    }
+    
+    .navbar .link{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .navbar .link a{
+        color: white;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: bold;
+        
+    }
+    
+    .navbar .link a:hover{
+        color: #ffbf57;
+    }
+    /* .navbar {
         padding: 0 8px;
     }
 
@@ -149,7 +211,7 @@ button {
 
     .navbar .link a {
         font-size: 14px; /* Decrease font size for smaller screens */
-    }
+    
 
     .card {
         width: 90%;
