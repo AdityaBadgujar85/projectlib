@@ -180,6 +180,7 @@
 
 # ALLOWED_HOSTS = ["viitprojectlibrary.in", "www.viitprojectlibrary.in", "127.0.0.1", "localhost"]
 
+################################################################################################################################
 """
 Django settings for projectlib project.
 
@@ -320,7 +321,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER ='viitprojectlibrary@gmail.com'
-EMAIL_HOST_PASSWORD ='tlei dpti zskj jihp'
+EMAIL_HOST_PASSWORD ='pzri sygk lrdz vujs'
 
 # URI Links
 LOGIN_URL = '/Login/'  # The URL where users are redirected when they try to access a protected view
@@ -378,7 +379,7 @@ STORAGES = {
 }
 
 
-ALLOWED_HOSTS = ['viitprojectlibrary.in', 'www.projectlibrary.in', '13.235.130.206','127.0.0.1']
+ALLOWED_HOSTS = ['viitprojectlibrary.in', 'www.viitprojectlibrary.in', '13.235.130.206','127.0.0.1']
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 734003200  # 700 MB
 FILE_UPLOAD_MAX_MEMORY_SIZE = 734003200  # 700 MB
