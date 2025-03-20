@@ -261,6 +261,136 @@
 /* Css for tabs */
 
     
+@media screen and (min-width: 766px) and (max-width: 1024px) {
+        
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    
+    .custom-shape-divider-bottom-1736520294 {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg); /* Flips the shape vertically */
+        z-index: -1;
+    }
+    
+    .custom-shape-divider-bottom-1736520294 svg {
+        position: relative;
+        display: block;
+        width: calc(207% + 1.3px); /* Ensures the shape stretches beyond the screen */
+        height: 1200px; /* Adjusts the height of the shape */
+    }
+    
+    .custom-shape-divider-bottom-1736520294 .shape-fill {
+        fill: url(#gradient-fill); /* Corrected gradient URL reference */
+    }
+    
+    
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 8px;
+        padding-right: 8px;
+        z-index: 1;
+    }
+    
+    .navbar .logo img{
+        width: 200px;
+        height: auto;
+    }
+    
+    .navbar .link{
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+    
+    .navbar .link a{
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        
+    }
+    
+    .navbar .link a:hover{
+        color: #ffbf57;
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        gap: 10px;
+        width: 100%;
+        max-width: 1200px; /* Added max-width to control overflow */
+        margin: 0 auto;
+        text-align: center;
+        padding: 0 15px;
+        font-size: 15px;
+    }
+    
+    .info {
+        width: 100%;
+        margin-top: 0;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .info h2 {
+        margin-bottom: 18px; /* Reduced margin */
+        font-size: 20px;
+    }
+    
+    .info h4 {
+        margin-top: 15px; /* Reduced margin */
+        font-size: 16px;
+    }
+    
+    .photo img {
+        width: 350px; /* Reduced image size */
+    }
+    
+    .SocialInfo {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px; /* Increased gap for better spacing */
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .SocialInfo img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .naming_photo {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .naming_photo img {
+        width: 100px;
+        border-radius: 100px;
+    }
+    
+    .nameing {
+        display: flex;
+        flex-direction: row;
+        gap: 30px; /* Reduced gap */
+        justify-content: center;
+        text-align: center;
+    }
+    }
 
 
         @media screen and (min-width: 1900px) and (max-width: 2560px){
