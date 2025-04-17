@@ -1,14 +1,29 @@
-from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import JsonResponse, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from students.models import Student 
-import logging
-from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, redirect
 from django.db.models import Q
+from django.core.mail import EmailMessage
+from django.conf import settings
+
+from students.models import Student
+
+import logging
+import os
+from io import BytesIO
+
+# ReportLab imports
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4, letter, landscape
+from reportlab.lib import colors
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib.utils import ImageReader
+
+
 def HomePage(request):
     print(request.user)
     return render(request, 'Homepage.html') 
@@ -89,9 +104,88 @@ def video_page(request, studid):
         return redirect('Repository')
 
 
+# Register custom fancy script font
+font_path = os.path.join(settings.BASE_DIR, 'static', 'fonts', 'Arizonia-Regular.ttf')
+pdfmetrics.registerFont(TTFont('Arizonia', font_path))
 
-@login_required
- # Only authenticated users can access this page
+def generate_certificate(student_obj):
+    buffer = BytesIO()
+    c = canvas.Canvas(buffer, pagesize=landscape(letter))
+    width, height = landscape(letter)
+
+    # Decorative gold border
+    margin = 20
+    c.setStrokeColorRGB(0.85, 0.65, 0.13)  # gold
+    c.setLineWidth(6)
+    c.rect(margin, margin, width - 2 * margin, height - 2 * margin)
+
+    # Institute Logo (top-left inside the border)
+    logo_path = os.path.join(settings.BASE_DIR, 'static', 'img', 'Borcelle.png')
+    if os.path.exists(logo_path):
+        logo = ImageReader(logo_path)
+        # Draw logo before title
+        c.drawImage(logo, margin + 30, height - 90, width=120, height=50, mask='auto')
+
+    # Trophy Image (before "Certificate of Excellence" text)
+    trophy_image_path = os.path.join(settings.BASE_DIR, 'static', 'img', 'medal.png')
+    if os.path.exists(trophy_image_path):
+        trophy = ImageReader(trophy_image_path)
+        # Adjust size as needed
+        c.drawImage(trophy, 60, height - 560, width=150, height=150, mask='auto')
+    # Trophy Image (before "Certificate of Excellence" text)
+    trophy_image_path = os.path.join(settings.BASE_DIR, 'static', 'img', 'signature.png')
+    if os.path.exists(trophy_image_path):
+        trophy = ImageReader(trophy_image_path)
+        # Adjust size as needed
+        c.drawImage(trophy, 580, height - 550, width=130, height=130, mask='auto')
+    # Content Y Positions
+    y_positions = {
+        "title": height - 190,
+        "subtitle": height - 240,
+        "name": height - 300,
+        "project_label": height - 340,
+        "project_title": height - 370,
+        "domain_date": height - 400,
+        "signature_text_y": 70
+    }
+
+    # Title with "Certificate of Excellence"
+    c.setFont("Helvetica-Bold", 34)
+    c.setFillColor(colors.darkblue)
+    c.drawCentredString(width / 2, y_positions["title"], "Certificate of Appreciation")
+
+    # Subtitle
+    c.setFont("Helvetica", 16)
+    c.setFillColor(colors.black)
+    c.drawCentredString(width / 2, y_positions["subtitle"], "This certificate is proudly presented to")
+
+    # Student Name
+    c.setFont("Arizonia", 44)
+    c.setFillColor(colors.darkred)
+    c.drawCentredString(width / 2, y_positions["name"], student_obj.name)
+
+    # Project Label
+    c.setFont("Helvetica", 14)
+    c.setFillColor(colors.black)
+    c.drawCentredString(width / 2, y_positions["project_label"], "For their contribution to the LearnVishwa Video Project Library")
+
+    # Project Title
+    c.setFont("Helvetica-Bold", 16)
+    c.drawCentredString(width / 2, y_positions["project_title"], f"\"{student_obj.title}\"")
+
+    # Domain and Date
+    c.setFont("Helvetica", 12)
+    c.drawCentredString(width / 2, y_positions["domain_date"], f"Domain: {student_obj.domain}   |   Date: {student_obj.date}")
+    
+    #Signature
+    c.setFont("Helvetica", 12)
+    c.drawString(width - 200, y_positions["signature_text_y"], "Authorized Signatory")
+
+    c.showPage()
+    c.save()
+    buffer.seek(0)
+    return buffer
+
 def UploadPage(request):
     if request.method == 'POST':
         student_data = {
@@ -111,10 +205,23 @@ def UploadPage(request):
             'Challenges': request.POST.get('challenges')
         }
 
-        Student.objects.create(**student_data)
-        messages.success(request, 'Project uploaded successfully.')
+        student_obj = Student.objects.create(**student_data)
+
+        # Generate the certificate and get the PDF
+        pdf_buffer = generate_certificate(student_obj)
+
+        # Send Email with Certificate
+        user_email = request.user.email
+        subject = "Thank you for uploading project video on learnvishwa"
+        body = f"Dear {request.user.username},\n\nThank you for submitting your project titled \"{student_obj.title}\". Please find your certificate attached.\n\nRegards,\nTeam Learn Vishwa"
+        email = EmailMessage(subject, body, to=[user_email])
+        email.attach('certificate.pdf', pdf_buffer.getvalue(), 'application/pdf')
+        email.send()
+
+        messages.success(request, 'Project uploaded successfully. Certificate sent to your email.')
         return redirect('Repository')
     return render(request, 'UploadPage.html')
+
 
 @login_required
 def RepositoryPage(request):
