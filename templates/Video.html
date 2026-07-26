@@ -1,121 +1,213 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video_page</title>
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{{ student_obj.title }} | LearnVishwa</title>
+
     {% load static %}
-    <link rel="shortcut icon" href={%static 'img/favicon.png'%} type="image/x-icon">
-    <link rel="stylesheet" href={%static 'css/video.css'%}>
-</head>
-<body>
-    <nav>
-        <div class="logo">
-            <a href="/"><img src={%static 'img/Borcelle.png'%} alt=""></a>
+
+    <link
+      rel="shortcut icon"
+      href="{% static 'img/favicon.png' %}"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/video.css' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    {% include "Navbar.html" %}
+
+    <!-- ===================================
+                VIDEO PAGE
+    ==================================== -->
+
+    <section class="videoPage">
+      <!-- LEFT SIDE -->
+
+      <div class="videoSection">
+        <div class="videoPlayer">
+          <video
+            src="{{ student_obj.video.url }}"
+            poster="{{ student_obj.thumbnail.url }}"
+            controls
+            autoplay
+          ></video>
         </div>
-        <div class="logout">
-            <a href="/logout/">LOGOUT</a>
-        </div>
-    </nav> 
-    <div class="main-container"> <!-- Changed class name here -->
-        <div class="container">
-            <div class="video1">
-                <video src="{{student_obj.video.url}}" autoplay controls poster="{{student_obj.thumbnail.url}}"></video>
+
+        <div class="videoContent">
+          <h1>{{ student_obj.title }}</h1>
+
+          <div class="videoMeta">
+            <div class="videoDate">
+              <i class="fa-regular fa-calendar"></i>
+
+              <span> {{ student_obj.date }} </span>
             </div>
-            <div class="title">
-                <h1>{{student_obj.title}}</h1>
-                <div class="date">
-                    <h3>{{student_obj.date}}</h3>  
-                    <form action="{% url 'video_like' student_obj.id %}" method="post" class="like-container">
-                        {% csrf_token %}
-                        <button id="like-btn" data-studid="{{ student_obj.id }}" data-liked="{% if liked %}true{% else %}false{% endif %}">
-                            <span id="like-icon">{% if liked %}❤️{% else %}🤍{% endif %}</span>
-                        </button>
-                        <span id="like-count">{{ student_obj.likes.count }}</span>
-                    </form>                                   
-                </div>   
-            </div>
+
+            <form
+              action="{% url 'video_like' student_obj.id %}"
+              method="post"
+              class="likeContainer"
+            >
+              {% csrf_token %}
+
+              <button
+                id="like-btn"
+                type="button"
+                data-studid="{{ student_obj.id }}"
+                data-liked="{% if liked %}true{% else %}false{% endif %}"
+              >
+                <span id="like-icon">
+                  {% if liked %} ❤️ {% else %} 🤍 {% endif %}
+                </span>
+              </button>
+
+              <span id="like-count"> {{ student_obj.likes.count }} </span>
+            </form>
+          </div>
         </div>
-        <div class="movement">
-            <div class="info">
-                <h3>Name: <p>{{student_obj.name}}</p></h3>
-                <h3>Class: <p>{{student_obj.ofclass}}</p></h3>
-                <h3>Div: <p>{{student_obj.division}}</p></h3> 
-                <h3>Branch: <p>{{student_obj.branch}}</p></h3> 
-                <h3>Description: <p>{{student_obj.discription}}</p></h3>
-                <h3>Domain of Project: <p>{{student_obj.domain}}</p></h3>
-                <h3>Achievement: <p>{{student_obj.Achievements}}</p></h3>
-                <h3>Challenges Faced: <p>{{student_obj.Challenges}}</p></h3>
-            </div>
-            <button class="back-button" onclick="goBack()">Go Back</button>
+      </div>
+
+      <!-- RIGHT SIDE -->
+
+      <aside class="studentCard">
+        <h2>Student Details</h2>
+
+        <div class="detail">
+          <span>Name</span>
+
+          <strong>{{ student_obj.name }}</strong>
         </div>
-    </div>
+
+        <div class="detail">
+          <span>Class</span>
+
+          <strong>{{ student_obj.ofclass }}</strong>
+        </div>
+
+        <div class="detail">
+          <span>Division</span>
+
+          <strong>{{ student_obj.division }}</strong>
+        </div>
+
+        <div class="detail">
+          <span>Branch</span>
+
+          <strong>{{ student_obj.branch }}</strong>
+        </div>
+
+        <div class="detail">
+          <span>Domain</span>
+
+          <strong>{{ student_obj.domain }}</strong>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ===================================
+            PROJECT DETAILS
+    ==================================== -->
+
+    <section class="projectDetails">
+      <div class="detailsGrid">
+        <div class="detailCard">
+          <h3>
+            <i class="fa-solid fa-file-lines"></i>
+
+            Project Description
+          </h3>
+
+          <p>{{ student_obj.discription }}</p>
+        </div>
+
+        <div class="detailCard">
+          <h3>
+            <i class="fa-solid fa-trophy"></i>
+
+            Achievements
+          </h3>
+
+          <p>{{ student_obj.Achievements }}</p>
+        </div>
+        <div class="detailCard">
+          <h3>
+            <i class="fa-solid fa-person-digging"></i>
+
+            Challenges Faced
+          </h3>
+
+          <p>{{ student_obj.Challenges }}</p>
+        </div>
+      </div>
+
+      <div class="pageActions">
+        <button type="button" class="backButton" onclick="goBack()">
+          <i class="fa-solid fa-arrow-left"></i>
+
+          Back to Repository
+        </button>
+      </div>
+    </section>
 
     <script>
-        // JavaScript to handle the back button functionality
-        function goBack() {
-            // Check if there is a previous page in the history stack
-            if (window.history.length > 1) {
-                window.history.back(); // Navigate to the previous page
-            } else {
-                alert("No previous page in history."); // Optional: Alert if no back navigation is possible
-            }
+      function goBack() {
+        if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          window.location.href = "/Repository/";
         }
-    </script>
-    
-    
-    <script>
-        window.addEventListener('DOMContentLoaded', function () {
-            const likeBtn = document.getElementById('like-btn');
-            const likeIcon = document.getElementById('like-icon');
-    
-            // Load correct styles on page load
-            const liked = likeBtn.getAttribute('data-liked') === 'true';
-    
-            if (liked) {
-                likeBtn.style.backgroundColor = '#ffbf57';
-                likeBtn.style.border = '2px solid #ff9f31';
-                likeIcon.innerHTML = '❤️';
-            } else {
-                likeBtn.style.backgroundColor = '#b3b3b3';
-                likeBtn.style.border = '2px solid #8c8c8c';
-                likeIcon.innerHTML = '🤍';
-            }
-    
-            // Handle Like/Unlike without page reload
-            likeBtn.addEventListener('click', function (event) {
-                event.preventDefault();
-                const studid = likeBtn.getAttribute('data-studid');
-    
-                fetch(`/Video/${studid}/like/`, {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRFToken': '{{ csrf_token }}'
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.liked) {
-                        likeBtn.style.backgroundColor = '#ffbf57';
-                        likeBtn.style.border = '2px solid #ff9f31';
-                        likeIcon.innerHTML = '❤️';
-                    } else {
-                        likeBtn.style.backgroundColor = '#b3b3b3';
-                        likeBtn.style.border = '2px solid #8c8c8c';
-                        likeIcon.innerHTML = '🤍';
-                    }
-                    document.getElementById('like-count').textContent = data.like_count;
-                });
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const likeBtn = document.getElementById("like-btn");
+
+        const likeIcon = document.getElementById("like-icon");
+
+        const likeCount = document.getElementById("like-count");
+
+        updateLikeStyle(likeBtn.dataset.liked === "true");
+
+        likeBtn.addEventListener("click", () => {
+          fetch(`/Video/${likeBtn.dataset.studid}/like/`, {
+            method: "POST",
+
+            headers: {
+              "X-CSRFToken": "{{ csrf_token }}",
+            },
+          })
+            .then((response) => response.json())
+
+            .then((data) => {
+              likeCount.textContent = data.like_count;
+
+              likeBtn.dataset.liked = data.liked;
+
+              updateLikeStyle(data.liked);
             });
         });
-    </script>
-    
-    
-    
-    
-    
-    
-    
 
-</body>
+        function updateLikeStyle(liked) {
+          if (liked) {
+            likeBtn.classList.add("liked");
+
+            likeIcon.textContent = "❤️";
+          } else {
+            likeBtn.classList.remove("liked");
+
+            likeIcon.textContent = "🤍";
+          }
+        }
+      });
+    </script>
+  </body>
 </html>

@@ -1,69 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup_Page</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sign Up | LearnVishwa</title>
+
     {% load static %}
-    <link rel="shortcut icon" href={%static 'img/favicon.png'%} type="image/x-icon">
-    <link rel="stylesheet" href={%static 'css/signup.css'%}>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="logo">
-           <a href="/"><img src={%static 'img/Borcelle.png'%} alt=""></a>
-        </div>
-        <div class="link">
-            <a href="/">Home</a>
-            <a href="/About/">About</a>
-            <a href="/Login/">Login</a>
-            <a href="/Register/">Signup</a>
-        </div>
-    </nav>
-    <div class="container">
-<div class="imgg">
-<img src={%static 'img/Untitled design.png'%} alt="">
-</div>
-<div class="form1">
 
-    <form method="post">
-      {% csrf_token %}
-        <label for="Username">Username:</label><br>
-        <input type="text" placeholder="Username" name="name" required><br>
-        <label for="email">Email:</label><br>
-        <input type="email" placeholder="Email Address" name="email" required><br>
-        <label for="password1">Password:</label><br>
-        <input type="password" placeholder="Password" name="password1" required><br>
-        <label for="password2">Confirm Password:</label><br>
-        <input type="password" placeholder="Confirm Password" name="password2" required><br>
-        {% if messages %}
-      <ul>
-        {% for message in messages %}
-          {{ message }}
-        {% endfor %}
-      </ul>
-    {% endif %}
-        <div class="links">
-        <a href="">Already Have Account?</a>
-        </div>
-        <button>Login</button>
-    </form>
+    <link
+      rel="shortcut icon"
+      href="{% static 'img/favicon.png' %}"
+      type="image/x-icon"
+    />
 
-</div>
-    </div>
-    <div class="custom-shape-divider-bottom-1736520294">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <!-- Define Gradient -->
-            <defs>
-                <linearGradient id="gradient-fill" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#000046" />
-                    <stop offset="100%" stop-color="#1CB5E0" />
-                </linearGradient>
-            </defs>
-            
-            <!-- Custom Shape with Gradient Fill -->
-            <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" fill="url(#gradient-fill)" class="shape-fill"></path>
-        </svg>
-    </div>
-</body>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+  </head>
+
+  <body>
+    {% include 'Navbar.html' %}
+
+    <section class="loginPage">
+      <div class="loginWrapper">
+        <!-- Left Section -->
+
+        <div class="loginIllustration">
+          <img
+            src="{% static 'img/Untitled design.png' %}"
+            alt="Student Registration"
+          />
+
+          <h2>Start Your Journey</h2>
+
+          <p>
+            Join LearnVishwa to upload your projects, discover ideas from other
+            students, and learn through real project experiences.
+          </p>
+        </div>
+
+        <!-- Right Section -->
+
+        <div class="loginCard">
+          <div class="cardTitle">
+            <h1>Create Your Account</h1>
+
+            <p>It only takes a minute to get started.</p>
+          </div>
+
+          <form method="POST">
+            {% csrf_token %}
+
+            <div class="formGroup">
+              <label for="username"> Username </label>
+
+              <input
+                id="username"
+                type="text"
+                name="name"
+                placeholder="Choose a username"
+                required
+              />
+            </div>
+
+            <div class="formGroup">
+              <label for="email"> Email Address </label>
+
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div class="formGroup">
+              <label for="password"> Password </label>
+
+              <input
+                id="password"
+                type="password"
+                name="password1"
+                placeholder="Create a password"
+                required
+              />
+            </div>
+
+            <div class="formGroup">
+              <label for="confirmPassword"> Confirm Password </label>
+
+              <input
+                id="confirmPassword"
+                type="password"
+                name="password2"
+                placeholder="Re-enter your password"
+                required
+              />
+            </div>
+
+            {% if messages %}
+
+            <div class="message">
+              {% for message in messages %}
+
+              <p>{{ message }}</p>
+
+              {% endfor %}
+            </div>
+
+            {% endif %}
+
+            <div class="extraLinks">
+              <span> Already have an account? </span>
+
+              <a href="{% url 'Login' %}"> Sign In </a>
+            </div>
+
+            <button type="submit">Create Account</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>

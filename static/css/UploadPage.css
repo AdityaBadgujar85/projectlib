@@ -1,410 +1,660 @@
-/* General Styles */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* ===========================================================
+   RESET
+=========================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+:root {
+  --primary: #2563eb;
+  --primaryDark: #1d4ed8;
 
-.custom-shape-divider-bottom-1736520294 {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg); /* Flips the shape vertically */
-    z-index: -1;
+  --background: #f8fafc;
+
+  --white: #ffffff;
+
+  --border: #dbe3ef;
+
+  --text: #1e293b;
+
+  --paragraph: #64748b;
+
+  --shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+
+  --radius: 24px;
 }
 
-.custom-shape-divider-bottom-1736520294 svg {
-    position: relative;
-    display: block;
-    width: calc(200% + 1.3px); /* Ensures the shape stretches beyond the screen */
-    height: 900px; /* Adjusts the height of the shape */
+/* ===========================================================
+   BODY
+=========================================================== */
+
+body {
+  font-family: "Inter", sans-serif;
+
+  background: linear-gradient(to bottom, #ffffff, #f8fafc);
+
+  color: var(--text);
 }
 
-.custom-shape-divider-bottom-1736520294 .shape-fill {
-    fill: url(#gradient-fill); /* Corrected gradient URL reference */
-}
+/* ===========================================================
+   PAGE
+=========================================================== */
 
+.uploadPage {
+  width: 100%;
 
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
-    z-index: 1;
-}
+  min-height: 100vh;
 
-.navbar .logo img{
-    width: 200px;
-    height: auto;
-}
-
-.navbar .link{
   display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  padding-top: 150px;
+
+  padding-bottom: 50px;
+
+  padding-left: 20px;
+
+  padding-right: 20px;
+}
+
+/* ===========================================================
+   WRAPPER
+=========================================================== */
+
+.uploadWrapper {
+  width: 100%;
+
+  max-width: 1220px;
+
+  display: grid;
+
+  grid-template-columns: 410px 1fr;
+
+  overflow: hidden;
+
+  border-radius: 26px;
+
+  background: #fff;
+
+  box-shadow: var(--shadow);
+}
+
+/* ===========================================================
+   LEFT PANEL
+=========================================================== */
+
+.uploadIllustration {
+  background: linear-gradient(145deg, #2563eb, #3b82f6);
+
+  color: white;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
   align-items: center;
-  justify-content: space-between;
-  gap: 80px;
-  margin-right: 20px;
+
+  text-align: center;
+
+  padding: 55px 40px;
 }
 
-.navbar .link a{
-    color: white;
-    text-decoration: none;
-    font-size: large;
-    font-weight: bold;
+.uploadIllustration img {
+  width: 100%;
+
+  max-width: 280px;
+
+  margin-bottom: 35px;
 }
 
-.navbar .link a:hover{
-    color: #ffbf57;
-}
-.container {
-    display: flex;
-    justify-content: center; /* Center the content */
-    align-items: flex-start; /* Align items to the top */
-    max-width: 100%;
-    padding: 0 10%; /* Add padding to the container */
-    gap: 20px; /* Space between image and card */
+.uploadIllustration h2 {
+  font-size: 2rem;
 
+  margin-bottom: 15px;
+
+  font-weight: 700;
 }
 
-.card {
-    flex: 1; /* Allow the card to grow */
-    width: 60%;
-    background-color: #ffbf57;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    border-radius: 10px;
-    padding: 30px;
-    font-size: 18px;
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
+.uploadIllustration p {
+  width: 100%;
+
+  max-width: 300px;
+
+  font-size: 0.96rem;
+
+  line-height: 1.8;
+
+  opacity: 0.92;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+/* ===========================================================
+   RIGHT PANEL
+=========================================================== */
+
+.uploadCard {
+  background: #fff;
+
+  padding: 45px;
 }
 
-input, select, textarea {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    min-width: 100%; /* Make inputs take the full width */
-    margin-bottom: 15px; /* Space between inputs */
+/* ===========================================================
+   TITLE
+=========================================================== */
+
+.cardTitle {
+  margin-bottom: 35px;
 }
 
-.textarea{
-    resize:none;
+.cardTitle h1 {
+  font-size: 2.4rem;
+
+  margin-bottom: 8px;
+
+  font-weight: 700;
 }
 
-.input{
-    background-color: white;
+.cardTitle p {
+  color: var(--paragraph);
+
+  font-size: 1rem;
 }
 
-.form-group label {
-    margin-bottom: 5px; /* Space between label and input */
-    font-weight: bold; /* Make label bold */
+/* ===========================================================
+   FORM
+=========================================================== */
+
+form {
+  width: 100%;
 }
+
+.formGroup {
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom: 22px;
+}
+
+.formGroup label {
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  margin-bottom: 8px;
+}
+
+/* ===========================================================
+   INPUTS
+=========================================================== */
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+
+  border: 1px solid var(--border);
+
+  background: #fff;
+
+  border-radius: 14px;
+
+  font-family: inherit;
+
+  transition: 0.25s;
+
+  font-size: 15px;
+}
+
+.formGroup input,
+.formGroup select {
+  height: 52px;
+
+  padding: 0 18px;
+}
+
+.formGroup textarea {
+  min-height: 130px;
+
+  resize: vertical;
+
+  padding: 15px 18px;
+}
+
+/* ===========================================================
+   FOCUS
+=========================================================== */
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+/* ===========================================================
+   PLACEHOLDER
+=========================================================== */
+
+::placeholder {
+  color: #94a3b8;
+}
+
+/* ===========================================================
+   GRID
+=========================================================== */
+
+.twoColumn {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+}
+
+/* ===========================================================
+   FILE INPUT
+=========================================================== */
+
+input[type="file"] {
+  padding: 12px;
+
+  height: auto;
+
+  cursor: pointer;
+
+  background: #f8fafc;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  border: none;
+
+  background: var(--primary);
+
+  color: white;
+
+  border-radius: 8px;
+
+  padding: 10px 18px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  margin-right: 16px;
+
+  font-weight: 600;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background: var(--primaryDark);
+}
+
+/* ===========================================================
+   BUTTON
+=========================================================== */
 
 button {
-    padding: 10px 20px;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: #3498db;
-    color: white;
-    min-width: 100%; /* Full width for button */
+  width: 100%;
+
+  height: 54px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: var(--primary);
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  margin-top: 10px;
 }
 
-.imgg {
-    flex: 1; /* Allow the image container to grow */
-    display: flex; /* Use flexbox for alignment */
-    justify-content: center; /* Center the image */
-    align-items: center; /* Center the image vertically */
-    max-width: 30%;
+button:hover {
+  background: var(--primaryDark);
+
+  transform: translateY(-2px);
 }
 
-.imgg img {
-    width: 100%; /* Make the image responsive */
-    max-width: 200px; /* Set a max width for the image */
-    height: auto;
-    margin-top: 50%;
-    position: fixed;
+button:disabled {
+  opacity: 0.75;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+/* ===========================================================
+   ERROR MESSAGE
+=========================================================== */
+
+.errorText {
+  display: none;
+
+  margin-top: 8px;
+
+  font-size: 0.85rem;
+
+  color: #dc2626;
+
+  font-weight: 500;
 }
 
-/* Responsive Styles for Navbar */
-@media screen and (max-width: 768px) {
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    
-    .custom-shape-divider-bottom-1736520294 {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        line-height: 0;
-        transform: rotate(180deg); /* Flips the shape vertically */
-        z-index: -1;
-    }
-    
-    .custom-shape-divider-bottom-1736520294 svg {
-        position: relative;
-        display: block;
-        width: calc(207% + 1.3px); /* Ensures the shape stretches beyond the screen */
-        height: 1000px; /* Adjusts the height of the shape */
-    }
-    
-    .custom-shape-divider-bottom-1736520294 .shape-fill {
-        fill: url(#gradient-fill); /* Corrected gradient URL reference */
-    }
-    
-    
-    .navbar{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 8px;
-        padding-right: 8px;
-        z-index: 1;
-    }
-    
-    .navbar .logo img{
-        width: 80px;
-        height: auto;
-    }
-    
-    .navbar .link{
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    
-    .navbar .link a{
-        color: white;
-        text-decoration: none;
-        font-size: 12px;
-        font-weight: bold;
-        
-    }
-    
-    .navbar .link a:hover{
-        color: #ffbf57;
-    }
-    /* .navbar {
-        padding: 0 8px;
-    }
+small {
+  color: #64748b;
 
-    .navbar .logo img {
-        width: 80px;
-    }
+  margin-top: 8px;
 
-    .navbar .link {
-        gap: 20px;
-    }
+  display: block;
 
-    .navbar .link a {
-        font-size: 14px; /* Decrease font size for smaller screens */
-    
-
-    .card {
-        width: 90%;
-        padding: 15px;
-        margin-top: 20px;
-        font-size: 14px;
-    }
-
-    input, select, textarea {
-        max-width: 100%; /* Full width on smaller screens */
-    }
-
-    button {
-        max-width: 100%; /* Full width on smaller screens */
-    }
-
-    .container {
-        flex-direction: column; /* Stack image and card vertically on small screens */
-        align-items: center; /* Center items */
-    }
-
-    .imgg img{
-        position: relative;
-    }
+  font-size: 0.84rem;
 }
 
+/* ===========================================================
+   INPUT HOVER
+=========================================================== */
 
-
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    
-    .custom-shape-divider-bottom-1736520294 {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        line-height: 0;
-        transform: rotate(180deg); /* Flips the shape vertically */
-        z-index: -1;
-    }
-    
-    .custom-shape-divider-bottom-1736520294 svg {
-        position: relative;
-        display: block;
-        width: calc(207% + 1.3px); /* Ensures the shape stretches beyond the screen */
-        height: 1200px; /* Adjusts the height of the shape */
-    }
-    
-    .custom-shape-divider-bottom-1736520294 .shape-fill {
-        fill: url(#gradient-fill); /* Corrected gradient URL reference */
-    }
-    
-    
-    .navbar{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 8px;
-        padding-right: 8px;
-        z-index: 1;
-    }
-    
-    .navbar .logo img{
-        width: 200px;
-        height: auto;
-    }
-    
-    .navbar .link{
-      display: flex;
-      align-items: center;
-      gap: 50px;
-    }
-    
-    .navbar .link a{
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: bold;
-        
-    }
-    
-    .navbar .link a:hover{
-        color: #ffbf57;
-    }
-
-    .card {
-        width: 90%;
-        padding: 15px;
-    }
-
-    input, select, textarea {
-        max-width: 100%; /* Full width on smaller screens */
-    }
-
-    button {
-        max-width: 100%; /* Full width on smaller screens */
-    }
-
-    .navbar .link a {
-        font-size: 16px; /* Slightly smaller font size on medium screens */
-    }
-
-    .imgg img{
-        margin-top: 100%;
-    }
+.formGroup input:hover,
+.formGroup select:hover,
+.formGroup textarea:hover {
+  border-color: #b8c4d6;
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1900px) {
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    
-    .custom-shape-divider-bottom-1736520294 {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        line-height: 0;
-        transform: rotate(180deg); /* Flips the shape vertically */
-        z-index: -1;
-    }
-    
-    .custom-shape-divider-bottom-1736520294 svg {
-        position: relative;
-        display: block;
-        width: calc(200% + 1.3px); /* Ensures the shape stretches beyond the screen */
-        height: 900px; /* Adjusts the height of the shape */
-    }
-    
-    .custom-shape-divider-bottom-1736520294 .shape-fill {
-        fill: url(#gradient-fill); /* Corrected gradient URL reference */
-    }
-    
-    
-    .navbar{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 20px;
-        padding-right: 20px;
-        z-index: 1;
-    }
-    
-    .navbar .logo img{
-        width: 200px;
-        height: auto;
-    }
-    
-    .navbar .link{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 80px;
-      margin-right: 20px;
-    }
-    
-    .navbar .link a{
-        color: white;
-        text-decoration: none;
-        font-size: large;
-        font-weight: bold;
-    }
-    
-    .navbar .link a:hover{
-        color: #ffbf57;
-    }
-    .card {
-        width: 80%;
-        padding: 30px;
-    }
+/* ===========================================================
+   SELECT DROPDOWN
+=========================================================== */
 
-    input, select, textarea {
-        max-width: 300px; /* Maintain max width for larger screens */
-    }
+select {
+  appearance: none;
 
-    button {
-        max-width: 500px; /* Maintain max width for larger screens */
-    }
+  -webkit-appearance: none;
 
-    .navbar .link a {
-        font-size: 18px; /* Increase font size on larger screens */
-    }
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2364748b' viewBox='0 0 20 20'%3E%3Cpath d='M5 7l5 5 5-5'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+
+  background-position: right 16px center;
+
+  background-size: 18px;
+
+  padding-right: 45px;
+}
+
+/* ===========================================================
+   OTHER DOMAIN INPUT
+=========================================================== */
+
+#otherDomainInput-group {
+  animation: fade 0.25s ease;
+}
+
+/* ===========================================================
+   ANIMATION
+=========================================================== */
+
+@keyframes fade {
+  from {
+    opacity: 0;
+
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* ===========================================================
+   SCROLLBAR
+=========================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ===========================================================
+   TABLET
+=========================================================== */
+
+@media (max-width: 1100px) {
+  .uploadPage {
+    padding-top: 135px;
+
+    padding-left: 20px;
+
+    padding-right: 20px;
+  }
+
+  .uploadWrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .uploadIllustration {
+    padding: 45px;
+  }
+
+  .uploadIllustration img {
+    max-width: 230px;
+  }
+
+  .uploadIllustration h2 {
+    font-size: 1.8rem;
+  }
+
+  .uploadCard {
+    padding: 35px;
+  }
+
+  .cardTitle {
+    margin-bottom: 28px;
+  }
+
+  .cardTitle h1 {
+    font-size: 2rem;
+  }
+
+  .twoColumn {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+}
+
+/* ===========================================================
+   MOBILE
+=========================================================== */
+
+@media (max-width: 768px) {
+  .uploadPage {
+    padding-top: 110px;
+
+    padding-left: 14px;
+
+    padding-right: 14px;
+
+    padding-bottom: 25px;
+  }
+
+  .uploadWrapper {
+    border-radius: 18px;
+  }
+
+  .uploadIllustration {
+    display: none;
+  }
+
+  .uploadCard {
+    padding: 24px 20px;
+  }
+
+  .cardTitle {
+    margin-bottom: 24px;
+  }
+
+  .cardTitle h1 {
+    font-size: 1.8rem;
+  }
+
+  .cardTitle p {
+    font-size: 0.92rem;
+  }
+
+  .formGroup {
+    margin-bottom: 18px;
+  }
+
+  .formGroup label {
+    font-size: 0.9rem;
+  }
+
+  .formGroup input,
+  .formGroup select {
+    height: 48px;
+
+    font-size: 14px;
+  }
+
+  .formGroup textarea {
+    min-height: 110px;
+
+    font-size: 14px;
+  }
+
+  button {
+    height: 50px;
+
+    font-size: 0.95rem;
+  }
+}
+
+/* ===========================================================
+   LARGE DESKTOP
+=========================================================== */
+
+@media (min-width: 1400px) {
+  .uploadWrapper {
+    max-width: 1280px;
+  }
+
+  .uploadIllustration {
+    padding: 60px;
+  }
+
+  .uploadIllustration img {
+    max-width: 320px;
+  }
+
+  .uploadCard {
+    padding: 55px;
+  }
+
+  .cardTitle h1 {
+    font-size: 2.6rem;
+  }
+}
+
+/* ===========================================================
+   EXTRA LARGE SCREENS
+=========================================================== */
+
+@media (min-width: 1700px) {
+  .uploadWrapper {
+    max-width: 1380px;
+  }
+
+  .uploadIllustration {
+    padding: 70px;
+  }
+
+  .uploadIllustration img {
+    max-width: 360px;
+  }
+
+  .uploadCard {
+    padding: 65px;
+  }
+}
+
+/* ===========================================================
+   DISABLED BUTTON
+=========================================================== */
+
+button:disabled {
+  background: #93c5fd;
+
+  box-shadow: none;
+}
+
+button:disabled:hover {
+  transform: none;
+}
+
+/* ===========================================================
+   SMOOTH TRANSITIONS
+=========================================================== */
+
+input,
+select,
+textarea,
+button {
+  transition: all 0.25s ease;
+}
+
+/* ===========================================================
+   CARD ANIMATION
+=========================================================== */
+
+.uploadWrapper {
+  animation: cardLoad 0.5s ease;
+}
+
+@keyframes cardLoad {
+  from {
+    opacity: 0;
+
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
 }

@@ -1,723 +1,356 @@
-*{
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* ==========================
+   Global
+========================== */
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --primary: #2563eb;
+  --primaryHover: #1d4ed8;
 
-.custom-shape-divider-bottom-1736520294 {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  --background: #f8fafc;
+  --card: #ffffff;
+
+  --text: #0f172a;
+  --paragraph: #64748b;
+
+  --border: #e2e8f0;
+
+  --radius: 22px;
+
+  --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+
+  color: var(--text);
+}
+
+/* ==========================
+   Page
+========================== */
+
+.loginPage {
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 90px 20px 20px;
+}
+
+/* ==========================
+   Wrapper
+========================== */
+
+.loginWrapper {
+  width: min(1050px, 92%);
+
+  background: var(--card);
+
+  border-radius: 24px;
+
   overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg); /* Flips the shape vertically */
-  z-index: -1;
+
+  display: grid;
+
+  grid-template-columns: 55% 45%;
+
+  box-shadow: var(--shadow);
 }
 
-.custom-shape-divider-bottom-1736520294 svg {
-  position: relative;
-  display: block;
-  width: calc(200% + 1.3px); /* Ensures the shape stretches beyond the screen */
-  height: 900px; /* Adjusts the height of the shape */
-}
+/* ==========================
+   Illustration
+========================== */
 
-.custom-shape-divider-bottom-1736520294 .shape-fill {
-  fill: url(#gradient-fill); /* Corrected gradient URL reference */
-}
+.loginIllustration {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
 
-
-.navbar{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  z-index: 1;
-}
-
-.navbar .logo img{
-  width: 200px;
-  height: auto;
-}
-
-.navbar .link{
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 80px;
-margin-right: 20px;
-}
-
-.navbar .link a{
   color: white;
-  text-decoration: none;
-  font-size: large;
-  font-weight: bold;
-}
 
-.navbar .link a:hover{
-  color: #ffbf57;
-}
-
-.container{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  position: relative;
-  gap: 180px;
-  top: 200px;
-}
 
-.imgg img{
-  width: 600px;
-  height: auto;
-  border-radius: 20px;
-  position: relative;
-  left: 100px;
-}
-
-.form1{
-  display: flex;
   flex-direction: column;
+
+  justify-content: center;
+
   align-items: center;
-  justify-content: center;
-  width: 500px;
-  height: 400px;
-  background-color: #ffbf57;
-  border-radius: 20px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-}
 
-.form1 input{
-  width: 400px;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  margin-bottom: 20px;
-}
-
-.form1 button{
-  width: 400px;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;  
-  color: rgb(0, 0, 0);
-  margin-top: 20px;
-  cursor: pointer;
-  background-color: lightgray;
-}
-
-.form1 button:hover{
-  background-color: #8a8a8a;
-}
-
-
-.form1 .links {
- display: flex;
- flex-direction: row;
- justify-content: space-between;
-}
-
-.form1 .links a{
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  font-size: large;
-}
-
-.form1 .links a:hover{
-  font-weight: bold;
-}
-
-ul{
-  justify-content: center;
   text-align: center;
-  align-items: center;
-  font-size: 16px;
-  margin-bottom: 10px;
+
+  padding: 45px;
 }
 
-/* Css for mobile */
+.loginIllustration img {
+  width: 85%;
 
+  max-width: 280px;
 
-@media screen and (max-width: 768px) {
-  *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-  }
-  
-  
-  .custom-shape-divider-bottom-1736520294 {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-      transform: rotate(180deg); /* Flips the shape vertically */
-      z-index: -1;
-  }
-  
-  .custom-shape-divider-bottom-1736520294 svg {
-      position: relative;
-      display: block;
-      width: calc(207% + 1.3px); /* Ensures the shape stretches beyond the screen */
-      height: 1000px; /* Adjusts the height of the shape */
-  }
-  
-  .custom-shape-divider-bottom-1736520294 .shape-fill {
-      fill: url(#gradient-fill); /* Corrected gradient URL reference */
-  }
-  
-  
-  .navbar{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-left: 8px;
-      padding-right: 8px;
-      z-index: 1;
-  }
-  
-  .navbar .logo img{
-      width: 80px;
-      height: auto;
-  }
-  
-  .navbar .link{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .navbar .link a{
-      color: white;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: bold;
-      
-  }
-  
-  .navbar .link a:hover{
-      color: #ffbf57;
-  }
-  
-  .container{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      position: relative;
-      gap: 10px;
-      top: 30px;
-  }
-  
-  .imgg img{
-      width: 250px;
-      height: auto;
-      border-radius: 20px;
-      position: relative;
-      left: 20px;
-  }
-  
-  .form1{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 300px;
-      height: 300px;
-      background-color: #ffbf57;
-      border-radius: 20px;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  .form1 input{
-      width: 260px;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      margin-bottom: 20px;
-  }
-  
-  .form1 button{
-      width: 260px;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;  
-      color: rgb(0, 0, 0);
-      margin-top: 20px;
-      cursor: pointer;
-      background-color: lightgray;
-  }
-  
-  .form1 button:hover{
-      background-color: #8a8a8a;
-  }
-  
-  
-  .form1 .links {
-     display: flex;
-     flex-direction: row;
-     justify-content: space-between;
-  }
-  
-  .form1 .links a{
-      color: rgb(0, 0, 0);
-      text-decoration: none;
-      font-size: small;
-  }
-  
-  .form1 .links a:hover{
-      font-weight: bold;
-  }
- 
-  ul{
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
+  margin-bottom: 25px;
+
+  animation: float 6s ease-in-out infinite;
+}
+
+.loginIllustration h2 {
+  font-size: 2rem;
+
+  margin-bottom: 14px;
+
+  font-weight: 700;
+}
+
+.loginIllustration p {
+  max-width: 340px;
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+
+  opacity: 0.9;
+}
+
+/* ==========================
+   Login Card
+========================== */
+
+.loginCard {
+  padding: 45px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.cardTitle {
+  margin-bottom: 28px;
+}
+
+.cardTitle h1 {
+  font-size: 2.2rem;
+
+  margin-bottom: 8px;
+}
+
+.cardTitle p {
+  color: var(--paragraph);
+}
+
+/* ==========================
+   Form
+========================== */
+
+.formGroup {
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom: 18px;
+}
+
+.formGroup label {
+  margin-bottom: 8px;
+
+  font-weight: 600;
+}
+
+.formGroup input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  outline: none;
+
+  font-size: 15px;
+
+  transition: 0.3s;
+}
+
+.formGroup input:focus {
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+/* ==========================
+   Message
+========================== */
+
+.message {
+  padding: 12px;
+
+  background: #fef2f2;
+
+  border: 1px solid #fecaca;
+
+  color: #dc2626;
+
+  border-radius: 10px;
+
+  margin-bottom: 18px;
+
+  font-size: 0.9rem;
+}
+
+/* ==========================
+   Links
+========================== */
+
+.extraLinks {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin: 5px 0 20px;
+}
+
+.extraLinks a {
+  color: var(--primary);
+
+  text-decoration: none;
+
+  font-size: 0.95rem;
+
+  font-weight: 500;
+}
+
+.extraLinks a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================
+   Button
+========================== */
+
+button {
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: var(--primary);
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+button:hover {
+  background: var(--primaryHover);
+
+  transform: translateY(-2px);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ==========================
+   Floating Animation
+========================== */
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
   }
 
+  50% {
+    transform: translateY(-12px);
+  }
 
-/* Css for tabs */
+  100% {
+    transform: translateY(0);
+  }
+}
 
-  @media screen and (min-width: 769px) and (max-width: 1024px) {
-      
-      *{
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-      }
-      
-      
-      .custom-shape-divider-bottom-1736520294 {
-          position: fixed;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          overflow: hidden;
-          line-height: 0;
-          transform: rotate(180deg); /* Flips the shape vertically */
-          z-index: -1;
-      }
-      
-      .custom-shape-divider-bottom-1736520294 svg {
-          position: relative;
-          display: block;
-          width: calc(207% + 1.3px); /* Ensures the shape stretches beyond the screen */
-          height: 1200px; /* Adjusts the height of the shape */
-      }
-      
-      .custom-shape-divider-bottom-1736520294 .shape-fill {
-          fill: url(#gradient-fill); /* Corrected gradient URL reference */
-      }
-      
-      
-      .navbar{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding-left: 8px;
-          padding-right: 8px;
-          z-index: 1;
-      }
-      
-      .navbar .logo img{
-          width: 200px;
-          height: auto;
-      }
-      
-      .navbar .link{
-        display: flex;
-        align-items: center;
-        gap: 50px;
-      }
-      
-      .navbar .link a{
-          color: white;
-          text-decoration: none;
-          font-size: 18px;
-          font-weight: bold;
-          
-      }
-      
-      .navbar .link a:hover{
-          color: #ffbf57;
-      }
-      
-      .container{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          position: relative;
-          gap: 10px;
-          top: 80px;
-      }
-      
-      .imgg img{
-          width: 400px;
-          height: auto;
-          border-radius: 20px;
-          position: relative;
-          left: 20px;
-      }
-      
-      .form1{
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 500px;
-          height: 400px;
-          background-color: #ffbf57;
-          border-radius: 20px;
-          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-          font-size: 20px;    
-      }
-      
-      .form1 input{
-          width: 400px;
-          padding: 10px;
-          border-radius: 5px;
-          border: none;
-          margin-bottom: 20px;
-      }
-      
-      .form1 button{
-          width: 400px;
-          padding: 10px;
-          border-radius: 5px;
-          border: none;  
-          color: rgb(0, 0, 0);
-          margin-top: 20px;
-          cursor: pointer;
-          background-color: lightgray;
-      }
-      
-      .form1 button:hover{
-          background-color: #8a8a8a;
-      }
-      
-      
-      .form1 .links {
-         display: flex;
-         flex-direction: row;
-         justify-content: space-between;
-      }
-      
-      .form1 .links a{
-          color: rgb(0, 0, 0);
-          text-decoration: none;
-          font-size: 15px;
-      }
-      
-      .form1 .links a:hover{
-          font-weight: bold;
-      }
-      ul{
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        font-size: 16px;
-        margin-bottom: 10px;
-      }
-      }
-    
+/* ==========================
+   Tablet
+========================== */
 
-      @media screen and (min-width: 1280px) and (max-width: 1900px){
+@media (max-width: 992px) {
+  .loginWrapper {
+    width: min(700px, 95%);
 
-          *{
-              margin: 0;
-              padding: 0;
-              box-sizing: border-box;
-          }
-          
-          
-          .custom-shape-divider-bottom-1736520294 {
-              position: fixed;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              overflow: hidden;
-              line-height: 0;
-              transform: rotate(180deg); /* Flips the shape vertically */
-              z-index: -1;
-          }
-          
-          .custom-shape-divider-bottom-1736520294 svg {
-              position: relative;
-              display: block;
-              width: calc(200% + 1.3px); /* Ensures the shape stretches beyond the screen */
-              height: 900px; /* Adjusts the height of the shape */
-          }
-          
-          .custom-shape-divider-bottom-1736520294 .shape-fill {
-              fill: url(#gradient-fill); /* Corrected gradient URL reference */
-          }
-          
-          
-          .navbar{
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding-left: 20px;
-              padding-right: 20px;
-              z-index: 1;
-          }
-          
-          .navbar .logo img{
-              width: 200px;
-              height: auto;
-          }
-          
-          .navbar .link{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 80px;
-            margin-right: 20px;
-          }
-          
-          .navbar .link a{
-              color: white;
-              text-decoration: none;
-              font-size: large;
-              font-weight: bold;
-          }
-          
-          .navbar .link a:hover{
-              color: #ffbf57;
-          }
+    grid-template-columns: 1fr;
+  }
 
-          .container{
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              flex-direction: row;
-              position: relative;
-              gap: 180px;
-              top: 120px;
-          }
-          
-          .imgg img{
-              width: 550px;
-              height: auto;
-              border-radius: 20px;
-              position: relative;
-              left: 100px;
-          }
-          
-          .form1{
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              width: 450px;
-              height: 350px;
-              background-color: #ffbf57;
-              border-radius: 20px;
-              box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-          }
-          
-          .form1 input{
-              width: 350px;
-              padding: 10px;
-              border-radius: 5px;
-              border: none;
-              margin-bottom: 20px;
-          }
-          
-          .form1 button{
-              width: 350px;
-              padding: 10px;
-              border-radius: 5px;
-              border: none;  
-              color: rgb(0, 0, 0);
-              margin-top: 20px;
-              cursor: pointer;
-              background-color: lightgray;
-          }
-          
-          .form1 button:hover{
-              background-color: #8a8a8a;
-          }
-          
-          
-          .form1 .links {
-             display: flex;
-             flex-direction: row;
-             justify-content: space-between;
-          }
-          
-          .form1 .links a{
-              color: rgb(0, 0, 0);
-              text-decoration: none;
-              font-size: large;
-          }
-          
-          .form1 .links a:hover{
-              font-weight: bold;
-          }
-          
-          ul{
-            justify-content: center;
-            text-align: center;
-            align-items: center;
-            font-size: 16px;
-            margin-bottom: 10px;
-          }
-      }
+  .loginIllustration {
+    padding: 35px;
+  }
 
-      @media screen and (min-width: 1900px) and (max-width: 2560px){
+  .loginIllustration img {
+    max-width: 220px;
+  }
+}
 
+/* ==========================
+   Mobile
+========================== */
 
-          *{
-              margin: 0;
-              padding: 0;
-              box-sizing: border-box;
-          }
-          
-          
-          .custom-shape-divider-bottom-1736520294 {
-              position: fixed;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              overflow: hidden;
-              line-height: 0;
-              transform: rotate(180deg); /* Flips the shape vertically */
-              z-index: -1;
-          }
-          
-          .custom-shape-divider-bottom-1736520294 svg {
-              position: relative;
-              display: block;
-              width: calc(200% + 1.3px); /* Ensures the shape stretches beyond the screen */
-              height: 1200px; /* Adjusts the height of the shape */
-          }
-          
-          .custom-shape-divider-bottom-1736520294 .shape-fill {
-              fill: url(#gradient-fill); /* Corrected gradient URL reference */
-          }
-          
-          
-          .navbar{
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding-left: 20px;
-              padding-right: 20px;
-              z-index: 1;
-          }
-          
-          .navbar .logo img{
-              width: 200px;
-              height: auto;
-          }
-          
-          .navbar .link{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 80px;
-            margin-right: 20px;
-          }
-          
-          .navbar .link a{
-              color: white;
-              text-decoration: none;
-              font-size: large;
-              font-weight: bold;
-          }
-          
-          .navbar .link a:hover{
-              color: #ffbf57;
-          }
-          
-          .container{
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              flex-direction: row;
-              position: relative;
-              gap: 180px;
-              top: 150px;
-          }
-          
-          .imgg img{
-              width: 700px;
-              height: auto;
-              border-radius: 20px;
-              position: relative;
-              left: 100px;
-          }
-          
-          .form1{
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              width: 600px;
-              height: 400px;
-              background-color: #ffbf57;
-              border-radius: 20px;
-              box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-          }
-          
-          .form1 input{
-              width: 500px;
-              padding: 10px;
-              border-radius: 5px;
-              border: none;
-              margin-bottom: 20px;
-          }
-          
-          .form1 button{
-              width: 500px;
-              padding: 10px;
-              border-radius: 5px;
-              border: none;  
-              color: rgb(0, 0, 0);
-              margin-top: 20px;
-              cursor: pointer;
-              background-color: lightgray;
-          }
-          
-          .form1 button:hover{
-              background-color: #8a8a8a;
-          }
-          
-          
-          .form1 .links {
-             display: flex;
-             flex-direction: row;
-             justify-content: space-between;
-          }
-          
-          .form1 .links a{
-              color: rgb(0, 0, 0);
-              text-decoration: none;
-              font-size: large;
-          }
-          
-          .form1 .links a:hover{
-              font-weight: bold;
-          }
-          ul{
-            justify-content: center;
-            text-align: center;
-            align-items: center;
-            font-size: 16px;
-            margin-bottom: 10px;
-          }
+@media (max-width: 768px) {
+  .loginPage {
+    padding: 120px 15px 20px;
+  }
 
-      }
+  .loginIllustration {
+    display: none;
+  }
 
-      
+  .loginWrapper {
+    width: 100%;
+  }
+
+  .loginCard {
+    padding: 30px 25px;
+  }
+
+  .cardTitle h1 {
+    font-size: 2rem;
+  }
+
+  .extraLinks {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+}

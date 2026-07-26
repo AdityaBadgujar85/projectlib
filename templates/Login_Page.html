@@ -1,67 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login_Page</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login | LearnVishwa</title>
+
     {% load static %}
-    <link rel="shortcut icon" href={%static 'img/favicon.png'%} type="image/x-icon">
-    <link rel="stylesheet" href={%static 'css/login.css'%}>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="logo">
-           <a href="/"><img src={%static 'img/Borcelle.png'%} alt=""></a>
-        </div>
-        <div class="link">
-            <a href="/">Home</a>
-            <a href="/About/">About</a>
-            <a href="/Login/">Login</a>
-            <a href="/Register/">Signup</a>
-        </div>
-    </nav>
-    <div class="container">
-<div class="imgg">
-<img src={%static 'img/Login1.png'%} alt="">
-</div>
-<div class="form1">
 
-    <form method="post">
-      {% csrf_token %}
-        <label for="email">Email:</label><br>
-        <input type="email" placeholder="Email Address" name="email" required><br>
-        <label for="password">Password:</label><br>
-        <input type="password" placeholder="Password" name="password" required><br>
-        {% if messages %}
-      <ul>
-        {% for message in messages %}
-          {{ message }}
-        {% endfor %}
-      </ul>
-    {% endif %}
-        <div class="links">
-        <a href="{% url 'password_reset' %}">Forgot Password?</a>
-        <a href="{% url 'Register' %}">Dont Have Account?</a>
-        </div>
-        <button>Login</button>
-    </form>
+    <link
+      rel="shortcut icon"
+      href="{% static 'img/favicon.png' %}"
+      type="image/x-icon"
+    />
 
-</div>
-    </div>
-    <div class="custom-shape-divider-bottom-1736520294">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <!-- Define Gradient -->
-            <defs>
-                <linearGradient id="gradient-fill" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#000046" />
-                    <stop offset="100%" stop-color="#1CB5E0" />
-                </linearGradient>
-            </defs>
-            
-            <!-- Custom Shape with Gradient Fill -->
-            <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" fill="url(#gradient-fill)" class="shape-fill"></path>
-        </svg>
-    </div>
-    
-</body>
+    <link rel="stylesheet" href="{% static 'css/Login.css' %}" />
+  </head>
+
+  <body>
+    {% include 'Navbar.html' %}
+
+    <section class="loginPage">
+      <div class="loginWrapper">
+        <!-- Left -->
+
+        <div class="loginIllustration">
+          <img src="{% static 'img/Login1.png' %}" alt="Login" />
+
+          <h2>Welcome Back</h2>
+
+          <p>
+            Continue exploring innovative student projects, collaborate with
+            your peers, upload your own work, and keep learning through
+            real-world implementations.
+          </p>
+        </div>
+
+        <!-- Right -->
+
+        <div class="loginCard">
+          <div class="cardTitle">
+            <h1>Login</h1>
+
+            <p>Enter your credentials to continue.</p>
+          </div>
+
+          <form method="POST">
+            {% csrf_token %}
+
+            <div class="formGroup">
+              <label>Email Address</label>
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div class="formGroup">
+              <label>Password</label>
+
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+
+            {% if messages %}
+
+            <div class="message">
+              {% for message in messages %} {{ message }} {% endfor %}
+            </div>
+
+            {% endif %}
+
+            <div class="extraLinks">
+              <a href="{% url 'password_reset' %}"> Forgot Password? </a>
+
+              <a href="{% url 'Register' %}"> Create Account </a>
+            </div>
+
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>

@@ -94,6 +94,7 @@ def logout_page(request):
 #     except Student.DoesNotExist:
 #         messages.error(request, 'Student not found.')
 #         return redirect('Repository')
+@login_required(login_url='Login')
 def video_page(request, studid):
     try:
         student_obj = Student.objects.get(id=studid)
@@ -186,6 +187,7 @@ def generate_certificate(student_obj):
     buffer.seek(0)
     return buffer
 
+@login_required(login_url='Login')
 def UploadPage(request):
     if request.method == 'POST':
         student_data = {
@@ -279,6 +281,7 @@ def RepositoryPage(request):
         # Render your template with the filtered student list
     return render(request, 'Repository.html', {'student_list': student_list})
 
+@login_required(login_url='Login')
 def video_like(request, studid):
     student_obj = get_object_or_404(Student, id=studid)
 

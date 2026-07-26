@@ -321,7 +321,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER ='viitprojectlibrary@gmail.com'
-EMAIL_HOST_PASSWORD ='pzri sygk lrdz vujs'
+EMAIL_HOST_PASSWORD ='arzy rtof ntix ycws'
 
 # URI Links
 LOGIN_URL = '/Login/'  # The URL where users are redirected when they try to access a protected view
@@ -343,9 +343,9 @@ AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazo
 
 
 # Static Files (CSS, JS)
-#STATIC_URL = '/static/'
-#STATICFILES_DIRS = [BASE_DIR / "static"]
-#STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # For local static files
@@ -366,17 +366,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # For collected static fi
 #    },
 #}
 
-STORAGES = {
-    "default": {
-        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
-        "OPTIONS": {
-            "location": "media",  # Store media files under `media/` in S3
-        },
-    },
-    "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
-    }
-}
+
 
 
 ALLOWED_HOSTS = ['viitprojectlibrary.in', 'www.viitprojectlibrary.in', '13.235.130.206','127.0.0.1']

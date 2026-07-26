@@ -1,81 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About_Page</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | LearnVishwa</title>
+
     {% load static %}
-    <link rel="shortcut icon" href={%static 'img/favicon.png'%} type="image/x-icon">
-    <link rel="stylesheet" href={%static 'css/About.css'%}>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="logo">
-           <a href="/"><img src={%static 'img/Borcelle.png'%} alt=""></a>
+
+    <link
+      rel="shortcut icon"
+      href="{% static 'img/favicon.png' %}"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'css/About.css' %}" />
+  </head>
+
+  <body>
+    {% include 'Navbar.html' %}
+
+    <!-- ========================= HERO ========================= -->
+
+    <section class="aboutHero">
+      <div class="heroLeft">
+        <span class="sectionTag"> About LearnVishwa </span>
+
+        <h1>
+          Connecting Students Through
+          <span>Innovation & Collaboration.</span>
+        </h1>
+
+        <p>
+          LearnVishwa is a centralized platform where students can upload,
+          discover, and learn from real-world academic projects. Our goal is to
+          bridge the gap between theoretical learning and practical
+          implementation by creating India's largest student project repository.
+        </p>
+
+        <div class="heroButtons">
+          <a href="/Repository/" class="primaryBtn"> Explore Projects </a>
+
+          <a href="/Upload/" class="secondaryBtn"> Upload Project </a>
         </div>
-        <div class="link">
-            <a href="/">Home</a>
-            <a href="/About/">About</a>
-            <a href="/Login/">Login</a>
-            <a href="/Register/">Signup</a>
+      </div>
+
+      <div class="heroRight">
+        <img src="{% static 'img/About.png' %}" alt="About LearnVishwa" />
+      </div>
+    </section>
+
+    <!-- ========================= MISSION ========================= -->
+
+    <section class="mission">
+      <div class="sectionHeading">
+        <span>OUR MISSION</span>
+
+        <h2>Empowering Students to Learn Together</h2>
+      </div>
+
+      <div class="missionGrid">
+        <div class="missionCard">
+          <h3>Learn</h3>
+
+          <p>
+            Access project demonstrations, documentation, implementation videos
+            and source code shared by students.
+          </p>
         </div>
-    </nav>
-    <div class="container">
-         <div class="photo">
-<img src={%static 'img/About.png'%} alt="">
-         </div>
-         <div class="info">
-            <h2>Project Description</h2>
-            <p>Learn Vishwa is a dynamic online platform designed to bring students together in a vibrant ecosystem of innovation and collaboration. Our mission is to empower students by providing a space where they can share their unique project ideas, explore innovative concepts from their peers, and form meaningful partnerships to work on groundbreaking initiatives.
 
-                By joining Learn Vishwa, students have the opportunity to connect with like-minded individuals who share their passion for learning and creativity. They can gain insights from diverse perspectives, enhance their problem-solving skills, and build collaborative networks that transcend geographical boundaries.
-                
-                Through the exchange of knowledge and collective brainstorming, we aim to foster a culture of continuous growth and exploration. Whether you're looking to turn your ideas into reality, seek inspiration, or find a team to bring your vision to life, Learn Vishwa is your go-to platform to learn, innovate, and thrive together.</p>
-        
-                <h4>Vishwakarma Institute of Information Technology</h4>
-                <div class="SocialInfo">
-                    <a href="https://twitter.com/viit_pune"><img src={%static 'img/Twitter.png'%}></a>
-                    <a href="https://www.instagram.com/viitpuneofficial/" ><img src={%static 'img/Instagram.png'%}></a>
-                    <a href="https://www.youtube.com/channel/UCAkJjvfT8-h0Ex4E2P-Utfg"><img src={%static 'img/Youtube.png'%} alt=""></a>
-                    <a href="https://m.facebook.com/viitpu/?ref=bookmarks&wtsid=rdr_03Zp8CZQyNJRjLvJl" ><img src={%static 'img/facebook.png'%}></a>
-                    <a href="https://www.linkedin.com/school/viitpune/?viewAsMember=true"><img src={%static 'img/LinkedIN.png'%}></a>
-                </div>
+        <div class="missionCard">
+          <h3>Collaborate</h3>
 
-                <div class="nameing">
-<div class="naming_photo">
-<h5>Mentor</h5>
-<img src={%static 'img/yogeshdeshpande.png'%} alt="">
-<h6>Dr. Yogesh Deshpande</h6>
-</div>
-<div class="naming_photo">
-    <h5>Creator</h5>
-    <img src={%static 'img/My Photo.jpg'%} alt="">
-    <h6>Aditya Badgujar</h6>
-    </div>
-    <div class="naming_photo">
-        <h5>Creator</h5>
-        <img src={%static 'img/Komal.png'%} alt="">
-        <h6>Komal Salunke</h6>
+          <p>
+            Connect with students having similar interests, exchange ideas and
+            build innovative projects together.
+          </p>
         </div>
-                </div>
 
-            </div>
+        <div class="missionCard">
+          <h3>Innovate</h3>
 
+          <p>
+            Showcase your work, inspire others and build practical solutions for
+            real-world problems.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    </div>
-    <div class="custom-shape-divider-bottom-1736520294">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <!-- Define Gradient -->
-            <defs>
-                <linearGradient id="gradient-fill" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#000046" />
-                    <stop offset="100%" stop-color="#1CB5E0" />
-                </linearGradient>
-            </defs>
-            
-            <!-- Custom Shape with Gradient Fill -->
-            <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" fill="url(#gradient-fill)" class="shape-fill"></path>
-        </svg>
-    </div>
-</body>
+    <!-- ========================= ABOUT ========================= -->
+
+    <section class="projectSection">
+      <div class="sectionHeading">
+        <span>PROJECT DESCRIPTION</span>
+
+        <h2>What is LearnVishwa?</h2>
+      </div>
+
+      <div class="projectCard">
+        <p>
+          LearnVishwa is a dynamic online platform designed to bring students
+          together in a vibrant ecosystem of innovation and collaboration.
+          Students can upload project videos, source code, presentations and
+          documentation while exploring projects shared by others.
+        </p>
+
+        <p>
+          The platform encourages knowledge sharing, teamwork and creativity.
+          Whether you're searching for inspiration, learning a new technology or
+          showcasing your final year project, LearnVishwa provides a
+          collaborative environment for continuous growth.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================= COLLEGE ========================= -->
+
+    <section class="collegeSection">
+      <div class="sectionHeading">
+        <span>DEVELOPED AT</span>
+
+        <h2>Vishwakarma Institute of Information Technology</h2>
+      </div>
+
+      <div class="socialLinks">
+        <a href="https://twitter.com/viit_pune" target="_blank">
+          <img src="{% static 'img/Twitter.png' %}" alt="" />
+        </a>
+
+        <a href="https://www.instagram.com/viitpuneofficial/" target="_blank">
+          <img src="{% static 'img/Instagram.png' %}" alt="" />
+        </a>
+
+        <a
+          href="https://www.youtube.com/channel/UCAkJjvfT8-h0Ex4E2P-Utfg"
+          target="_blank"
+        >
+          <img src="{% static 'img/Youtube.png' %}" alt="" />
+        </a>
+
+        <a href="https://m.facebook.com/viitpu/" target="_blank">
+          <img src="{% static 'img/facebook.png' %}" alt="" />
+        </a>
+
+        <a href="https://www.linkedin.com/school/viitpune/" target="_blank">
+          <img src="{% static 'img/LinkedIN.png' %}" alt="" />
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================= TEAM ========================= -->
+
+    <section class="teamSection">
+      <div class="sectionHeading">
+        <span>OUR TEAM</span>
+
+        <h2>Meet the People Behind LearnVishwa</h2>
+      </div>
+
+      <div class="teamGrid">
+        <div class="memberCard">
+          <img src="{% static 'img/yogeshdeshpande.png' %}" alt="" />
+
+          <h3>Dr. Yogesh Deshpande</h3>
+
+          <p>Project Mentor</p>
+        </div>
+
+        <div class="memberCard">
+          <img src="{% static 'img/My Photo.jpg' %}" alt="" />
+
+          <h3>Aditya Badgujar</h3>
+
+          <p>Project Developer</p>
+        </div>
+
+        <div class="memberCard">
+          <img src="{% static 'img/Komal.png' %}" alt="" />
+
+          <h3>Komal Salunke</h3>
+
+          <p>Project Developer</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= CTA ========================= -->
+
+    <section class="joinSection">
+      <h2>Ready to Share Your Project?</h2>
+
+      <p>
+        Upload your project today and help thousands of students learn from your
+        work.
+      </p>
+
+      <a href="/Upload/" class="primaryBtn"> Upload Your Project </a>
+    </section>
+  </body>
 </html>

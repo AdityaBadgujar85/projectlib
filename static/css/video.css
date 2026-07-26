@@ -1,380 +1,500 @@
-Global Styles
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ==========================================
+            GOOGLE FONT
+========================================== */
 
-:root {
-    font-size: 16px;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* ==========================================
+            RESET
+========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: clamp(14px, 1vw, 18px);
-    font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
+
+  background: #f8fafc;
+
+  color: #1f2937;
 }
 
-/* Navbar */
-nav {
-    display: flex;
-    padding: 1rem 2rem; /* Consistent padding for navbar */
-    width: 100%;
-    background-color: #fff;
-    align-items: center;
-    justify-content: space-between;
+/* ==========================================
+            VIDEO PAGE
+========================================== */
+
+.videoPage {
+  width: 92%;
+
+  max-width: 1400px;
+
+  margin: 140px auto 35px;
+
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 30px;
+
+  align-items: start;
 }
 
-.logo {
-    max-width: 120px;
+/* ==========================================
+            VIDEO SECTION
+========================================== */
+
+.videoSection {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
 }
 
-.logo img {
-    width: 100%;
-    height: auto;
+/* ==========================================
+            VIDEO PLAYER
+========================================== */
+
+.videoPlayer {
+  background: #000;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  border: 1px solid #e5e7eb;
 }
 
-.logout a {
-    text-decoration: none;
-    color: black;
-    padding: 8px 12px; /* Consistent padding for logout link */
-    border-radius: 5px;
-    transition: background 0.3s ease;
+.videoPlayer video {
+  width: 100%;
+
+  display: block;
+
+  aspect-ratio: 16/9;
+
+  background: #000;
+
+  object-fit: contain;
 }
 
-.logout a:hover {
-    color: red;
+/* ==========================================
+            VIDEO CONTENT
+========================================== */
+
+.videoContent {
+  background: #fff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  padding: 24px;
 }
 
-/* Main Container */
-.main-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 50px;
-    padding-top: 10px;
+.videoContent h1 {
+  font-size: 28px;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  margin-bottom: 22px;
+
+  color: #111827;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    max-width: 65%; /* Adjust this value if needed */
+/* ==========================================
+            VIDEO META
+========================================== */
+
+.videoMeta {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
 }
 
-.container > .title {
-    word-wrap: break-word;
-    width: 100%;
+.videoDate {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #64748b;
+
+  font-size: 15px;
 }
 
-.title h1 {
-    font-size: 1.5rem;
-    margin-bottom: 10px; /* Reduced margin for consistency */
+.videoDate i {
+  color: #2563eb;
 }
 
-.video1 {
-    width: 100%;  /* Adjust width as needed */
-    height: 70vh; /* Adjust height relative to viewport height */
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black; /* Fills remaining space with black */
-    border: 0.5px solid grey;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
+/* ==========================================
+            LIKE
+========================================== */
 
-.video1 video {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    aspect-ratio: 16/9;
-    object-fit: contain;
-}
+.likeContainer {
+  display: flex;
 
+  align-items: center;
 
-
-.info {
-    width: 100%;
-    background-color: #ffbf57;
-    padding: 20px; /* Consistent padding for info */
-    border-radius: 10px;
-    word-wrap: break-word;
-    min-height: 90%;
-}
-
-.info h3 {
-    font-size: clamp(16px, 1.2vw, 20px);
-    color: #000000;
-    margin-bottom: 10px;
-}
-
-.info p {
-    color: rgb(59, 59, 59);
-    font-family: small;
-}
-
-/* Button Styles */
-.movement {
-    display: flex;
-    flex-direction: column;
-    width: 30%; /* Adjust this value if needed */
-    gap: 15px;
-    align-items: center;
-}
-
-.movement button {
-    background-color: #ffbf57;
-    padding: 10px 15px; /* Consistent padding for buttons */
-    border-radius: 10px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
-    width: 100%;
-}
-
-.movement button:hover {
-    background-color: #e6a84d;
-}
-
-.container .title .date{
-    display: flex;
-
-}
-
-.title .date {
-    display: flex; /* Use flexbox to align items in a row */
-    align-items: center; /* Center items vertically */
-    gap: 15px; /* Space between the date and the button */
-    justify-content: space-between;
-}
-
-.title .date h3 {
-    margin: 0; /* Remove default margin */
-    white-space: nowrap; /* Prevent line breaks */
-}
-
-.title .date form {
-    margin: 0; /* Remove default margin */
+  gap: 12px;
 }
 
 #like-btn {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 28px;
-    color: white;
-    border: 2px solid #8c8c8c;
-    background-color: #b3b3b3;
-    cursor: pointer;
+  width: 48px;
+
+  height: 48px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f3f4f6;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  cursor: pointer;
+
+  font-size: 22px;
+
+  transition: 0.25s;
+}
+
+#like-btn:hover {
+  background: #e5e7eb;
 }
 
 #like-btn.liked {
-    border: 2px solid #ff9f31;
-    background-color: #ffbf57;
+  background: #fee2e2;
 }
 
 #like-count {
-    font-size: 18px;
-    font-weight: bold;
-    color: #4a4a4a;
+  font-size: 16px;
+
+  font-weight: 600;
+
+  color: #374151;
+}
+/* ==========================================
+            STUDENT CARD
+========================================== */
+
+.studentCard {
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  padding: 24px;
+
+  position: sticky;
+
+  top: 120px;
 }
 
-form{
-    display: flex;
+.studentCard h2 {
+  font-size: 22px;
+
+  font-weight: 700;
+
+  color: #111827;
+
+  margin-bottom: 20px;
+
+  padding-bottom: 14px;
+
+  border-bottom: 1px solid #e5e7eb;
 }
 
-@media (max-width: 500px) {
+.detail {
+  display: flex;
 
-    .title h1 {
-        font-size: 1rem; /* Smaller title on very small screens */
-    }
+  justify-content: space-between;
 
-    .title .date{
-        font-size: 0.8rem;
-    }
+  align-items: flex-start;
 
-    .info h3 {
-        font-size: clamp(14px, 1vw, 18px); /* Adjust heading size */
-    }
+  gap: 20px;
 
-    .movement button {
-        font-size: 14px; /* Smaller button text */
-    }
+  padding: 15px 0;
 
-    .main-container{
-    padding: 10px;
-    }
-
-    .container{
-        max-width: 100%;
-    }
-    .movement{
-        width: 100%;
-        margin-top: 10px;
-    }
-    .video1 {
-        width: 100%;  /* Adjust width as needed */
-        height: 40vh; /* Adjust height relative to viewport height */
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: black; /* Fills remaining space with black */
-        border: 0.5px solid grey;
-        border-radius: 10px;
-        margin-bottom: 10px;
-    }
-    
-    .video1 video {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        aspect-ratio: 16/9;
-        object-fit: contain;
-    }
-    .title .date {
-        display: flex; /* Use flexbox to align items in a row */
-        align-items: center; /* Center items vertically */
-        gap: 15px; /* Space between the date and the button */
-        justify-content: space-between;
-    }
-    
-    .title .date h3 {
-        margin: 0; /* Remove default margin */
-        white-space: nowrap; /* Prevent line breaks */
-    }
-    
-    .title .date form {
-        margin: 0; /* Remove default margin */
-    }
-    
-    #like-btn {
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        font-size: 15px;
-        color: white;
-        border: 2px solid #8c8c8c;
-        background-color: #b3b3b3;
-        cursor: pointer;
-    }
-    
-    #like-btn.liked {
-        border: 2px solid #ff9f31;
-        background-color: #ffbf57;
-    }
-    
-    #like-count {
-        font-size: 13px;
-        font-weight: bold;
-        color: #4a4a4a;
-    }
-    
-    form{
-        display: flex;
-    }   
+  border-bottom: 1px solid #f1f5f9;
 }
 
-@media (min-width: 501px) and (max-width: 1200px) {
-    .title h1 {
-        font-size: 1rem; /* Smaller title on very small screens */
-    }
+.detail:last-child {
+  border-bottom: none;
+}
 
-    .title .date{
-        font-size: 0.8rem;
-    }
+.detail span {
+  color: #64748b;
 
-    .info h3 {
-        font-size: clamp(14px, 1vw, 18px); /* Adjust heading size */
-    }
+  font-size: 14px;
 
-    .movement button {
-        font-size: 14px; /* Smaller button text */
-    }
+  font-weight: 500;
+}
 
-    .main-container{
-    padding: 10px;
-    }
+.detail strong {
+  color: #111827;
 
-    .container{
-        max-width: 100%;
-    }
-    .movement{
-        width: 100%;
-        margin-top: 10px;
-    }
-    .video1 {
-        width: 100%;  /* Adjust width as needed */
-        height: 50vh; /* Adjust height relative to viewport height */
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: black; /* Fills remaining space with black */
-        border: 0.5px solid grey;
-        border-radius: 10px;
-        margin-bottom: 10px;
-    }
-    
-    .video1 video {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        aspect-ratio: 16/9;
-        object-fit: contain;
-    }
-    .title .date {
-        display: flex; /* Use flexbox to align items in a row */
-        align-items: center; /* Center items vertically */
-        gap: 15px; /* Space between the date and the button */
-        justify-content: space-between;
-    }
-    
-    .title .date h3 {
-        margin: 0; /* Remove default margin */
-        white-space: nowrap; /* Prevent line breaks */
-    }
-    
-    .title .date form {
-        margin: 0; /* Remove default margin */
-    }
-    
-    #like-btn {
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        font-size: 20px;
-        color: white;
-        border: 2px solid #8c8c8c;
-        background-color: #b3b3b3;
-        cursor: pointer;
-    }
-    
-    #like-btn.liked {
-        border: 2px solid #ff9f31;
-        background-color: #ffbf57;
-    }
-    
-    #like-count {
-        font-size: 15px;
-        font-weight: bold;
-        color: #4a4a4a;
-    }
-    
-    form{
-        display: flex;
-    }
+  font-size: 15px;
+
+  font-weight: 600;
+
+  text-align: right;
+
+  word-break: break-word;
+}
+
+/* ==========================================
+            PROJECT DETAILS
+========================================== */
+
+.projectDetails {
+  width: 92%;
+
+  max-width: 1400px;
+
+  margin: 20px auto 60px;
+}
+
+.detailsGrid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+/* ==========================================
+            DETAIL CARD
+========================================== */
+
+.detailCard {
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  padding: 24px;
+}
+
+.detailCard h3 {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+
+  font-size: 18px;
+
+  color: #111827;
+}
+
+.detailCard h3 i {
+  color: #2563eb;
+}
+
+.detailCard p {
+  color: #64748b;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  white-space: pre-wrap;
+
+  word-break: break-word;
+}
+
+/* ==========================================
+            PAGE ACTIONS
+========================================== */
+
+.pageActions {
+  margin-top: 30px;
+
+  display: flex;
+
+  justify-content: flex-start;
+}
+
+.backButton {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 14px 24px;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.backButton:hover {
+  background: #1d4ed8;
+}
+
+.backButton i {
+  transition: 0.25s;
+}
+
+.backButton:hover i {
+  transform: translateX(-4px);
+}
+
+/* ==========================================
+            TABLET
+========================================== */
+
+@media (max-width: 992px) {
+  .videoPage {
+    grid-template-columns: 1fr;
+  }
+
+  .studentCard {
+    position: static;
+  }
+
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================
+            MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+  .videoPage {
+    width: 95%;
+
+    margin: 120px auto 25px;
+
+    gap: 20px;
+  }
+
+  .projectDetails {
+    width: 95%;
+  }
+
+  .videoContent {
+    padding: 18px;
+  }
+
+  .videoContent h1 {
+    font-size: 22px;
+  }
+
+  .videoMeta {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .studentCard {
+    padding: 18px;
+  }
+
+  .detail {
+    flex-direction: column;
+
+    gap: 6px;
+  }
+
+  .detail strong {
+    text-align: left;
+  }
+
+  .detailCard {
+    padding: 18px;
+  }
+}
+
+/* ==========================================
+            SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+  .videoPage {
+    width: 96%;
+  }
+
+  .projectDetails {
+    width: 96%;
+  }
+
+  .videoContent h1 {
+    font-size: 20px;
+  }
+
+  .studentCard h2 {
+    font-size: 20px;
+  }
+
+  .detailCard h3 {
+    font-size: 17px;
+  }
+
+  .detailCard p {
+    font-size: 14px;
+  }
+
+  .backButton {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
+
+/* ==========================================
+            SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }

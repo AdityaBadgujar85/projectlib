@@ -1,56 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home_page</title>
-    
-    {%load static%}
-    <link rel="shortcut icon" href={%static 'img/favicon.png'%} type="image/x-icon">
-    <link rel="stylesheet" href={%static 'css/Homepage.css'%}>
-</head>
-<body>
-    </div>
-    <nav class="navbar">
-        <div class="logo">
-           <a href="/"><img src={%static 'img/Borcelle.png'%} alt=""></a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnVishwa</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/Homepage.css' %}" />
+  </head>
+
+  <body>
+    {% include 'Navbar.html' %}
+
+    <main class="hero">
+      <div class="heroLeft">
+        <div class="heroBadge">🎓 India's Student Project Repository</div>
+
+        <h1>
+          Learn from
+          <span>Real Projects</span>
+          Built by Students.
+        </h1>
+
+        <p>
+          Discover hundreds of academic projects, watch complete implementation
+          videos, explore source code, and upload your own work to inspire
+          thousands of students across colleges.
+        </p>
+
+        <div class="heroButtons">
+          <a href="/Upload/" class="primaryBtn"> Upload Project </a>
+
+          <a href="/Repository/" class="secondaryBtn"> Browse Library </a>
         </div>
-        <div class="link">
-            <a href="/">Home</a>
-            <a href="/About/">About</a>
-            <a href="/Login/">Login</a>
-            <a href="/Register/">Signup</a>
-        </div>
-    </nav>
-    <div class="mainimg">
-        <div class="text1">
-            <h1>Welcome</h1>
-            <h4>Learn, Create, Submit, Succeed...</h4>
-            <p>Our platform provides all the tools and resources to elevate your knowledge, empowering you to transform your ideas into innovative projects </p>
-            <p>Access in-depth project demonstrations, tutorials, and walkthroughs.
-                Project Submission Hub</p>
-        <div class="uploadlink">
-        <a href="/Upload/">Upload Project Videos</a>
-        <a href="/Repository/">Browser Project Videos</a>
-    </div>  
-    
-    </div>
-    <div class="imgg">
-    <img src={%static 'img/Untitled design1.png'%} alt="">
-</div>
-</div>
-    <div class="custom-shape-divider-bottom-1736520294">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <!-- Define Gradient -->
-            <defs>
-                <linearGradient id="gradient-fill" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#000046" />
-                    <stop offset="100%" stop-color="#1CB5E0" />
-                </linearGradient>
-            </defs>
-            
-            <!-- Custom Shape with Gradient Fill -->
-            <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" fill="url(#gradient-fill)" class="shape-fill"></path>
-        </svg>
-</body>
+      </div>
+
+      <div class="heroRight">
+        <img
+          src="{% static 'img/homePageBackGround.jpg' %}"
+          alt="Project Library"
+        />
+      </div>
+    </main>
+  </body>
 </html>
