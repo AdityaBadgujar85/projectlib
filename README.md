@@ -53,7 +53,7 @@ projectlib/
 ### Clone the Repository
 
 ```bash
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git](https://github.com/AdityaBadgujar85/projectlib.git)
+git clone https://github.com/AdityaBadgujar85/projectlib.git
 ```
 
 ### Move into the Project Directory
